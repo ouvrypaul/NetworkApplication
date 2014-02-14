@@ -214,7 +214,18 @@ li:hover{
 }
 
 li{
-	cursor: pointer;
+ cursor: pointer;
  transition:  font-size 0.6s;	
  font-size: 20px;
+}
+
+
+#div_transition{
+    height: 550px;
+}
+
+#section{
+    overflow: hidden;
+    transition: height 0.6s;
+    height: 90%;
 }

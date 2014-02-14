@@ -6,11 +6,12 @@
     } else {
         /* EXIT */
     }
+    
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
    <head>
-	<title>Userpage</title>
+	<title>Network Application</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>	
@@ -39,16 +40,18 @@
 		
 		<nav class="navbar widget container">
 			<ul>
-				<li class="active"><i class="fa fa-spinner" onclick="nav(0)"></i></li>
-				<li><i class="fa fa-envelope" onclick="nav(1)"></i></li>
-				<li><i class="fa fa-group" onclick="nav(2)"></i></li>
-				<li><i class="fa fa-pencil-square-o" onclick="nav(3)"></i></li>
-				<li><i class="fa fa-cog" onclick="nav(4)"></i></li>
+				<li class="active"><i class="fa fa-spinner" onclick="nav(0,-1)"></i></li>
+				<li><i class="fa fa-envelope" onclick="nav(1,-1)"></i></li>
+				<li><i class="fa fa-group" onclick="nav(2,-1)"></i></li>
+				<li><i class="fa fa-pencil-square-o" onclick="nav(3,-1)"></i></li>
+				<li><i class="fa fa-cog" onclick="nav(4,-1)"></i></li>
 			</ul>
 		</nav>
 		
-		<section id="section" class="widget container">
-			<?php include("./news.php");?>
-		</section> 
+		<div id="div_transition">
+		    <section id="section" class="widget container">
+			    <?php include("./news.php");?>
+		    </section>
+		</div>    
 	</body>
  </html>

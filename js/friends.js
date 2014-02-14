@@ -109,7 +109,3 @@ function addFriend(idFriend){
     xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
     xhr.send("idFriend="+idFriend);
 }
-
-function message(idFriend) {
-    alert("Not available yet.");
-}

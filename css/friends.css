@@ -24,18 +24,18 @@
 }
 
 #div_friend_search{
-    overflow: scroll;
+    overflow-y: scroll;
     height: 380px;
 }
 
 #div_friends{
     height: 410px;
-    overflow: scroll;
+    overflow-y:  scroll;
 }
 
 #div_request{
- height: 410px;
-    overflow: scroll;
+    height: 410px;
+    overflow-y: scroll;
 }
 
 
@@ -177,8 +177,8 @@
 
 .img_high_plus{
     cursor: pointer;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 
 .request_table {
