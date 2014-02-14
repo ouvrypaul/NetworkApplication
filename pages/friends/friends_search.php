@@ -1,0 +1,33 @@
+<?php
+    include('../../database/database_login.php');
+    session_start();
+    
+    if(isset($_SESSION['idUser']) && isset($_POST['text'])){ 
+        $queryFriends ='SELECT idUser,username,imagePath FROM User WHERE idUser NOT IN (
+           SELECT idFriend FROM Friend WHERE idUser='.$_SESSION['idUser'].' AND accepted=1
+        ) AND idUser<>'.$_SESSION['idUser'].' AND username LIKE "%'.$_POST['text'].'%" ORDER BY username';
+        
+        $result = mysql_query($queryFriends) or die('Query Friends failed (friend_search.php): ' . mysql_error());
+        $string="";
+        while ($line = mysql_fetch_row($result)) {
+            $queryRequest ='SELECT f.accepted FROM Friend f WHERE f.idUser='.$_SESSION['idUser'].' AND f.idFriend='.$line[0];
+            $result2 = mysql_query($queryRequest) or die('Query Test Friends failed (friend_search.php): ' . mysql_error());
+            $test = 1;
+            while ($line2 = mysql_fetch_row($result2)) {
+                $test =$line2[0];
+            }
+            if($test==0) {
+                $string=$string.'<table class="people"><tr><td><img class="people_img" src="../img/profil/'.$line[2].'"/></td><td class="td_username">'.$line[1].'</td><td>
+                <img class="plus" src="../img/unfriend.png" onclick="unrequest('.$line[0].')"/></td></tr></table>';
+            } else {
+                $string=$string.'<table class="people"><tr><td><img class="people_img" src="../img/profil/'.$line[2].'"/></td><td class="td_username">'.$line[1].'</td><td>
+                <img class="plus" src="../img/plus.png" onclick="addRequest('.$line[0].')"/></td></tr></table>';
+            }
+        }
+    }
+    if($string == ""){
+        echo '<table class="people"><tr><td>No resultat found !</tr></table>';
+    } else {
+        echo $string;
+    }
+?>

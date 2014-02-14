@@ -1,0 +1,206 @@
+#main_table{
+    height: 415px;
+    width: 100%;
+}
+
+#td_search{
+    vertical-align: top;
+    height: 100%;
+    width: 22%;
+    box-shadow: 0px 0px 2px 0px white;
+}
+
+#td_friends{
+    vertical-align: top;
+    height: 100%;
+    width: 70%;
+        box-shadow: 0px 0px 2px 0px white;
+}
+
+#td_request{
+    height: 100%;
+    width: 8%;
+    box-shadow: 0px 0px 2px 0px white;
+}
+
+#div_friend_search{
+    overflow: scroll;
+    height: 380px;
+}
+
+#div_friends{
+    height: 410px;
+    overflow: scroll;
+}
+
+#div_request{
+ height: 410px;
+    overflow: scroll;
+}
+
+
+/*  FRIENDS SEARCH */
+
+#input_search{
+   width: 100%;
+   font-size: 15px;
+   margin-bottom: 2px;
+}
+
+.people{
+    margin-top: 3px;
+    border: solid 1px white;
+    border-radius: 5px;
+    vertical-align:middle;
+    text-align: center;
+    width: 95%;
+}
+
+.people:hover{
+    box-shadow: 0px 0px 6px 0px white;
+    transform: skew(-10deg,-5deg);
+    transition: transform 0.6s;
+}
+
+
+.people_img{
+    width:70px;
+    border-radius: 5px;
+}
+
+.td_username{
+    font-size: 20px; 
+    width: 140px;
+}
+
+.plus{
+    width:25px;
+    cursor: pointer;
+}
+
+
+/*  FRIENDS PART*/
+
+
+.line{
+    height: 205px;
+}
+
+.friend_pic{
+    width: 115px;
+    height: 115px;
+    border-radius: 5px;
+}
+
+.div_person{
+    margin-top:-5px;
+    margin-left: 30px;
+    border: solid 1px white;
+    width: 121px;
+    height: 178px;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
+
+.div_person:hover{
+    box-shadow:0px 0px 4px 2px white;
+}
+
+.friend_table {
+    margin-left:0px;
+    transition: margin-left 0.6s;
+}
+
+.friend_table:hover {
+    margin-left:-121px;
+    transition: margin-left 0.6s;
+}
+
+.img_icon{
+    height: 30px;
+    cursor: pointer;
+}
+
+
+.hidden_text{
+    text-align: justify;
+    vertical-align: top;
+    font-size: 20px;
+}
+
+.div_hidden_friend{
+    width: 121px;
+}
+
+.unmove_table{
+    margin-top: -5px;
+    text-align: center;
+     width: 100%;
+}
+
+.friend_name{
+    text-align: center;
+    margin-top: -12px;
+    font-size: 18px;
+    width: 100%;
+}
+
+
+/* FRIEND REQUEST*/
+
+
+.div_person_request{
+    border: solid 1px white;
+    margin-top:2px;
+    margin-left: 5px;
+    width: 96px;
+    height: 96px;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
+
+.div_person_request:hover{
+    box-shadow:0px 0px 4px 0px white;
+    transform: rotate(360deg);
+    transition: transform 0.6s;
+}
+
+.request_pic{
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+}
+
+.img_high_plus{
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+}
+
+.request_table {
+    margin-left:0px;
+    transition: margin-left 0.6s;
+}
+
+.request_table:hover {
+    margin-left:-93px;
+    transition: margin-left 0.6s;
+}
+
+
+.div_hidden_request {
+    width: 90px;
+}
+
+.request_name{
+    margin-top: -10px;
+}
+
+
+
+
+

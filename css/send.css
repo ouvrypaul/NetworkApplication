@@ -1,0 +1,62 @@
+#send_table{
+    height: 400px;
+    width: 100%;
+}
+
+#td_friend_list{
+    vertical-align: top;
+    width: 10%;
+    height: 390px;
+    box-shadow: 0px 0px 4px 0px white;
+}
+
+#td_send_list{
+    vertical-align: top;
+    width: 10%;
+    height: 390px;
+    box-shadow: 0px 0px 4px 0px white;
+}
+
+#td_message{
+    vertical-align: top;
+    width: 80%;
+    height: 390px;
+    box-shadow: 0px 0px 4px 0px white;
+    padding: 5px;
+}
+
+
+#div_friend_list{
+    height: 390px;
+    box-shadow: 0px 0px 4px 0px white;
+    overflow: scroll;
+}
+
+#div_send_list{
+    height: 390px;
+    box-shadow: 0px 0px 4px 0px white;
+    overflow: scroll;
+}
+
+.button_send{
+    width: 100%;
+}
+
+/* FRIEND LIST */
+
+.friend_mess{
+    text-align: center;
+    margin-left: 2%;
+    width: 95%;
+    border-radius: 5px;
+    margin-top: 2px;
+    border: solid 1px white;
+    cursor: pointer;
+}
+
+.friend_mess:hover{
+    box-shadow: 0px 0px 4px 2px white;
+}
+
+
+/* MESSAGE ZONE */
