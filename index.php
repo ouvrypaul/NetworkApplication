@@ -34,6 +34,7 @@
   </head>
     <body>
       <span> The file index2.php also exist to use it easily </span>
+      <span> Most of the password are "test" </span>
       <div id="signin" class="widget container form">
 	<div class="heading">
 	  <h4> Please sign in </h4>
