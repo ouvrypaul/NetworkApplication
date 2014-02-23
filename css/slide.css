@@ -1,0 +1,55 @@
+.control{
+	 width: 20%;
+	 color:#296e73;
+         border:none !important;
+}
+
+.control :hover{
+	color:#35aea5;
+}
+.contSlide {
+	overflow:hidden;
+  text-align:center;
+  height:100%;
+  width:800px;
+  margin:0 auto;
+}
+
+#slides {
+         border:none;
+	text-align:center;
+	height:100%;
+	width:2400px;
+	-webkit-transition:all 1.0s ease-in-out;
+	-moz-transition:all 1.0s ease-in-out;
+	-o-transition:all 1.0s ease-in-out;
+	transition:all 1.0s ease-in-out;
+}
+ 
+ 
+#slides tr {
+         border:none;
+}
+
+.slide {
+border: none !important;
+	width:800px;
+	height:100%;
+	text-align: center;
+}
+
+.slide h3 {
+	padding-left: 50px;
+}
+
+.slide img {
+	width:300px;
+}
+
+#right {
+	text-align: right;
+}
+
+#prev {
+	display: none;
+}

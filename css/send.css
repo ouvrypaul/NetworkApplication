@@ -35,19 +35,21 @@
 
 
 #div_friend_list{
+        border-radius: 5px;
     height: 390px;
     box-shadow: 0px 0px 4px 0px white;
     overflow-y:  scroll;
 }
 
 #div_send_list{
+        border-radius: 5px;
     height: 390px;
     box-shadow: 0px 0px 4px 0px white;
     overflow-y:  scroll;
 }
 
 .button_send{
-    width: 100%;
+    width: 94%;
 }
 
 /* FRIEND LIST */
@@ -73,15 +75,16 @@
 #title_text {
     margin-left: 2%;
     width: 86%;
+        border-radius: 5px;
 }
 
 #text_text {
-    text-align: top;
     margin-bottom: 20px;
     margin-top: 5px;
     width: 100%;
     height: 40%;
     resize:none;
+    border-radius: 5px;
 }
 
 #img_preview {
@@ -93,7 +96,7 @@
 }
 
 #moins {
-    width: 30%;
+    width: 25%;
     height: 7%;
 }
 
@@ -103,7 +106,7 @@
 }
 
 #plus {
-    width: 30%;
+    width: 25%;
     height: 7%;
 }
 
@@ -119,6 +122,6 @@
 #feedback {
     width: 100%;
     border: solid 1px white;
-    height: 72%;
+    height: 76%;
     border-radius: 5px;    
 }

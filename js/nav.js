@@ -15,7 +15,8 @@ function tab(index,send){
     pageName[0] = "news.php";
     pageName[1] = "inbox.php";
     pageName[2] = "friends.php";
-    pageName[3] = "send.php"
+    pageName[3] = "send.php";
+	pageName[4] = "settings.php"
     var xhr = getXhr();	
     xhr.onreadystatechange = function(){
         if((xhr.readyState == 4) && (xhr.status == 200)){
@@ -41,18 +42,32 @@ function unscroll(){
 
 function scroll(index){
    var size = new Array(5);
-    size[0] = "90%";
-    size[1] = "88%";
-    size[2] = "88%";
-    size[3] = "93%";
-    size[4] = "0%";
+    size[0] = "91%";
+    size[1] = "95%";
+    size[2] = "95%";
+    size[3] = "97%";
+    size[4] = "90%";
     var node = document.getElementById("section");
     node.style.height = size[index];
 }
 
 function nav(index,send){
     unscroll();
-    //document.getElementById("section").innerHTML ="";
     setTimeout("scroll("+index+")",700);
     setTimeout("tab("+index+","+send+")",450);
+}
+
+
+
+function disconnect(){
+    var xhr = getXhr();	
+    xhr.onreadystatechange = function(){
+        if((xhr.readyState == 4) && (xhr.status == 200)){
+            tmp = xhr.responseText;
+        }	
+    }	
+    xhr.open("post","./disconnect.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
+    xhr.send();
+    window.location='../index.php';
 }

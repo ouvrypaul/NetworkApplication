@@ -1,0 +1,39 @@
+.form {
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.text {
+	min-width:300px;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.group {
+	width:80%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 80px;
+	margin-bottom: 50px;
+}
+
+.button-group{
+	display:inline-block;
+	width:50%;
+	margin: 10px auto;
+}
+
+#signin {
+	width:400px;
+	overflow-x:hidden;
+}
+
+#login_div {
+	width:400px;
+	/*margin-top: -200px;*/
+}
+
+#panel{
+  margin-left: 0px;
+  transition: all 0.6s linear;
+}

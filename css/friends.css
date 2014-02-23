@@ -1,5 +1,5 @@
 #main_table{
-    height: 415px;
+    height: 455px;
     width: 100%;
 }
 
@@ -25,16 +25,16 @@
 
 #div_friend_search{
     overflow-y: scroll;
-    height: 380px;
+    height: 420px;
 }
 
 #div_friends{
-    height: 410px;
+    height: 450px;
     overflow-y:  scroll;
 }
 
 #div_request{
-    height: 410px;
+    height: 450px;
     overflow-y: scroll;
 }
 
@@ -160,7 +160,7 @@
     text-align: center;
     border-radius: 5px;
     overflow: hidden;
-    
+    margin-bottom:10px;
 }
 
 .div_person_request:hover{

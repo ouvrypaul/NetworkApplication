@@ -1,0 +1,63 @@
+.form {
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.text {
+	padding: 10px;
+	font-size: 16px;
+	margin-left: 25px;
+}
+
+.large {
+	width:300px;
+}
+.text-group {
+	float : left;
+}
+
+.text-group:first-child {
+margin-top : -5px;
+}
+.group {
+	width:90%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.button-form {
+	display:block;
+	width:40%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#general_settings_fieldset{
+	margin-top: 20px;
+        margin-left: 20px;
+	margin-bottom: 20px;
+	height:75%;
+}
+
+#design_settings_fieldset{
+	margin-top: 20px;
+        margin-left: 20px;
+	height:55%;  
+}
+
+#delete_profile_fieldset{
+	margin-top: 20px;
+        margin-left: 20px;
+	margin-bottom: 20px;
+	height:16%; 
+}
+
+#cover_preview {
+    width: 100%;
+    height: 40%;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: 1px solid #FFF;
+}

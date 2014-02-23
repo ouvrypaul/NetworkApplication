@@ -27,8 +27,6 @@ function moins(idMovie){
     }
 }
 
-function submit() {
-}
 
 function getXhr(){
 	var xhr = null;
