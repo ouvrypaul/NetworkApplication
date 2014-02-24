@@ -16,7 +16,7 @@
 	
 }
 
-#lock-envelope {
+#lock_envelope {
 	position: absolute;
 	display:block;
 	top: 30%;
@@ -29,7 +29,7 @@
 	transition: -moz-transform 1s ease-out, opacity 1s 1s;
 	transition: -o-transform 1s ease-out, opacity 1s 1s;
 	transition: -ms-transform 1s ease-out, opacity 1s 1s;
-	
+	transition: transform 1s ease-out, opacity 1s 1s;	
 }
 
 #logo {
@@ -42,19 +42,25 @@
 	height: 200px;
 }
 
-#image, #message {
+#image {
+	max-width: 300px;
+	max-height: 180px;
+	width: 50px;
+}
+
+#message {
 	max-width: 300px;
 	max-height: 180px;
 }
 
-#head-envelope, #foot-envelope {
+#head_envelope, #foot_envelope {
 	position: absolute;
 	display: block;
 	width: inherit;
 
 }
 
-#head-envelope {
+#head_envelope {
 	border-radius: 10px 10px 0 0;
 	background-image:url('../img/texture.jpg');
 	top: 0px;
@@ -68,7 +74,7 @@
 
 }
 
-#foot-envelope {
+#foot_envelope {
 	border-radius: 0 0 10px 10px;
 	background-image:url('../img/texture.jpg');
 	bottom: 0px;

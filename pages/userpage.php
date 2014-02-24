@@ -22,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/placement.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/friends.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/send.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/message.css"/>
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
 	<script src="../js/nav.js"></script>
 	<script src="../js/slider.js"></script>
@@ -29,6 +30,7 @@
 	<script src="../js/friends.js"></script>
 	<script src="../js/signin.js"></script>
 	<script src="../js/settings.js"></script>
+	<script src="../js/message.js"></script>
   </head>
 	<body>
 		
