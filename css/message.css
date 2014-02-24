@@ -1,0 +1,84 @@
+#countdown {
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	text-align: center;
+	background-color: #dfeef9;
+}
+
+#envelope {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	text-align: center;
+	
+}
+
+#lock-envelope {
+	position: absolute;
+	display:block;
+	top: 30%;
+	left: 37%;
+	width: 70px;
+	height: 70px;
+	z-index: 1;
+	/*browser compatibility*/
+	transition: -webkit-transform 1s ease-out, opacity 1s 1s;
+	transition: -moz-transform 1s ease-out, opacity 1s 1s;
+	transition: -o-transform 1s ease-out, opacity 1s 1s;
+	transition: -ms-transform 1s ease-out, opacity 1s 1s;
+	
+}
+
+#logo {
+	width: inherit;
+	height: inherit;
+}
+
+#letter, #envelope {
+	width: 300px;
+	height: 200px;
+}
+
+#image, #message {
+	max-width: 300px;
+	max-height: 180px;
+}
+
+#head-envelope, #foot-envelope {
+	position: absolute;
+	display: block;
+	width: inherit;
+
+}
+
+#head-envelope {
+	border-radius: 10px 10px 0 0;
+	background-image:url('../img/texture.jpg');
+	top: 0px;
+	height: 50%;
+	background-color: #fdcb05;
+	/*browser compatibility*/
+	-webkit-transition: top 2s, width 2s, height 2s;
+	-moz-transition: top 2s, width 2s, height 2s;
+	-o-transition: top 2s, width 2s, height 2s;
+	-ms-transition: top 2s, width 2s, height 2s;
+
+}
+
+#foot-envelope {
+	border-radius: 0 0 10px 10px;
+	background-image:url('../img/texture.jpg');
+	bottom: 0px;
+	height: 50%;
+	background-color: #f17ed7;
+	/*browser compatibility*/
+	-webkit-transition: bottom 2s, width 2s, height 2s;
+	-moz-transition: bottom 2s, width 2s, height 2s;
+	-o-transition: bottom 2s, width 2s, height 2s;
+	-ms-transition: bottom 2s, width 2s, height 2s;
+
+}
+
