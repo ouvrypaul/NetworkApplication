@@ -1,0 +1,14 @@
+This website is a coursework for the Network Applications course. It is a photo and text messaging web application that allows user to send and receive messages containing text or pictures. These messages can be read for a fixed period of time determined by the sender. For now, only the design part of the website has been implemented.
+The website consists of one page for sign in and sign up and one userpage divided in different parts detailed below and accessible through a navigation bar :
+
+- News part : the news part contains a slider of all the news of the user. It can be unread messages, demands of friendship by another user or notifications of friendship accepted. The unread messages can be read or destroyed, demands of friendship can be accepted or rejected and notifications of friendship accepted allow the user to send a message to its new friend.
+
+- Inbox part : all these activities are recorded in an inbox allowing the user to keep a track of its actions on the application.
+
+- Friendship part : this part displays all the friends of the user and allows him to send them a message or remove a friendship. On the left side, the user can look for new friends according to their name and the right side displays demands of friendship that have not been accepted yet.
+
+- Send message part : the user can choose several persons among its list of friends to send them a message. It can add text or/and a picture to add in the message, then choose the time for it to be readeable. 
+
+- Settings part : the user can change its profile informations (username, email and password) and also the design of its page (profile picture, cover picture and color of headings and buttons in the page). In this part, the user can also decide to quit the application definitively and remove all its personal details.
+
+The last icon of the navigation bar disconnects the user of the page.
