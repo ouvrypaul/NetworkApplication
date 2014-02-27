@@ -1,3 +1,27 @@
+function unscroll(){	
+    var node = document.getElementById("section");
+	node.style.height = "12%";
+}
+
+
+function scroll(index){
+   var size = new Array(5);
+    size[0] = "91%";
+    size[1] = "95%";
+    size[2] = "95%";
+    size[3] = "97%";
+    size[4] = "90%";
+    var node = document.getElementById("section");
+    node.style.height = size[index];
+}
+
+function nav(index,send){
+    unscroll();
+    setTimeout("scroll("+index+")",700);
+    setTimeout("tab("+index+","+send+")",450);
+}
+
+
 function getXhr(){
 	var xhr = null;
 	if(window.XMLHttpRequest){
@@ -7,8 +31,6 @@ function getXhr(){
 	}
     return xhr;
 } 
-
-
 
 function tab(index,send){
     var pageName = new Array(3);
@@ -35,39 +57,9 @@ function tab(index,send){
 }
 
 
-function unscroll(){	
-    var node = document.getElementById("section");
-	node.style.height = "12%";
-}
-
-function scroll(index){
-   var size = new Array(5);
-    size[0] = "91%";
-    size[1] = "95%";
-    size[2] = "95%";
-    size[3] = "97%";
-    size[4] = "90%";
-    var node = document.getElementById("section");
-    node.style.height = size[index];
-}
-
-function nav(index,send){
-    unscroll();
-    setTimeout("scroll("+index+")",700);
-    setTimeout("tab("+index+","+send+")",450);
-}
 
 
 
 function disconnect(){
-    var xhr = getXhr();	
-    xhr.onreadystatechange = function(){
-        if((xhr.readyState == 4) && (xhr.status == 200)){
-            tmp = xhr.responseText;
-        }	
-    }	
-    xhr.open("post","./disconnect.php",true);
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
-    xhr.send();
-    window.location='../index.php';
+	document.getElementById("disconnect_form").submit();
 }

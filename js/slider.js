@@ -27,4 +27,58 @@ function prev() {
 		document.getElementById("prev").style.display = "none";
 	}
 	document.getElementById("next").style.display = "inline-block";
-}	
+}
+
+
+function test(){
+	var top = document.getElementById("top");
+	var right = document.getElementById("right");
+	var left = document.getElementById("left");
+	var back = document.getElementById("back");
+	var truc = document.getElementById("truc");
+	
+	top.style.marginTop="-100px"
+	left.style.marginTop="-48px";	
+	left.style.marginLeft="-230px";
+	right.style.marginLeft="500px";
+	back.style.marginTop="150px";
+	back.style.marginLeft="-520px";
+	truc.innerHTML="";
+	setTimeout("retour()",2000);
+	
+}
+
+
+function retour(){
+	var top = document.getElementById("top");
+	var right = document.getElementById("right");
+	var left = document.getElementById("left");
+	var back = document.getElementById("back");
+
+	top.style.marginTop="0px"
+	left.style.marginTop="-145px";	
+	left.style.marginLeft="0px";
+	right.style.marginLeft="55px";
+	back.style.marginTop="-145px";
+	back.style.marginLeft="-298px";
+	
+	setTimeout("end()",2000);
+}
+
+function end() {
+	var top = document.getElementById("top");
+	var right = document.getElementById("right");
+	var left = document.getElementById("left");
+	var back = document.getElementById("back");
+
+	top.style.width="0px";
+	top.style.height="0px";
+	right.style.width="0px";
+	right.style.height="0px";
+	left.style.width="0px";
+	left.style.height="0px";
+	back.style.width="0px";
+	back.style.height="0px";
+	
+	setTimeout("next(4)",1000);
+}

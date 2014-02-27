@@ -230,3 +230,14 @@ li{
     transition: height 0.6s;
     height: 91%;
 }
+
+#frame {
+    overflow: auto;
+    wordWrap:break-word;
+    margin-top: -65px;
+    position: fixed;
+}
+
+.info_ul{
+    margin-top: -75px;
+}

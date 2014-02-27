@@ -16,9 +16,9 @@
             }
         }
     } else if(isset($_SESSION['idUser'])) {
-         echo "<script language=\"javascript\">";
-         echo "window.location='./pages/userpage.php';";
-         echo "</script>";
+	echo "<script language=\"javascript\">";
+	echo "window.location='./pages/userpage.php';";
+	echo "</script>"; 
     }
 ?>
 <!DOCTYPE html>
@@ -33,8 +33,8 @@
     <script src="js/signin.js"></script>
   </head>
     <body>
-      <span> The file index2.php also exist to use it easily </span>
-      <span> Most of the password are "test" </span>
+	<a href="./info.html">Description</a>
+      <!--<span> Most of the password are "test" </span>-->
       <div id="signin" class="widget container form">
 	<div class="heading">
 	  <h4> Please sign in </h4>
@@ -66,13 +66,17 @@
 		  <input id="password" type="password" class="text" placeholder="Password" required><br/>
 		  <input id="password_again" type="password" class="text" placeholder="Confirm password" required><br/>
 		  <button class="button" type="submit">Sign up</button>
-		  <button class="button" type="button" onclick="signupSlides('2');" >Return</button>
+		  <button class="button" type="button" onclick="signupSlides('2');" >Sign in</button>
 		  <span id="error_signup" class="error"></span>
 	      </form>
 	    </div>
 	  </td>
 	</tr>
 	</table>
-      </div>	
+      </div>
+	<script>
+	signupSlides(1);
+	setTimeout("signupSlides(2);",700);
+	</script>
     </body>
  </html>

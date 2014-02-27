@@ -27,18 +27,6 @@ function moins(idMovie){
     }
 }
 
-
-function getXhr(){
-	var xhr = null;
-	if(window.XMLHttpRequest){
-	    xhr = new XMLHttpRequest();
-	}else if(window.ActiveXObject){
-	    xhr = new ActiveXObject("Msxml2.XMLHTTP");
-	}
-    return xhr;
-}
-
-
 function addAll() {
     var doc1 = document.getElementById("div_send_list");
     var doc2 = document.getElementById("div_friend_list");
@@ -68,8 +56,5 @@ function change(number) {
     } else if (number==1) {
         document.getElementById("img_finder").disabled = !document.getElementById("img_finder").disabled;
         document.getElementById("submit").disabled = !document.getElementById("submit").disabled;
-    }
-    
-    
-    
+    }  
 }

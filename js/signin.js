@@ -12,7 +12,7 @@ function signupSlides(i){
     if (i==1) {
        document.getElementById("panel").style.marginLeft="-400px";
     } else if(i==2){
-      document.getElementById("panel").style.marginLeft="0px";
+       document.getElementById("panel").style.marginLeft="0px";
     }
 }
 
@@ -66,3 +66,10 @@ function addSignUp(){
     return false;	
 }
 
+function revertErrorSignup(){
+	document.getElementById("error_signup").innerHTML = "";
+}
+
+function revertErrorLogin(){
+	document.getElementById("error_login").innerHTML = "";
+}

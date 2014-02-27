@@ -1,10 +1,15 @@
 <?php
+    if(isset($_POST['disconnect'])){
+	header('Location: ../index.php');
+	session_start();
+        unset($_SESSION['idUser']);
+        session_destroy();
+    }
+
     include('../database/database_login.php');
     session_start();
     if(!isset($_SESSION['idUser'])) {
-        echo "<script language=\"javascript\">";
-        echo "window.location='../index.php';";
-        echo "</script>";
+	header('Location: ../index.php');
     } else if(isset($_POST['idUser'])){
 	$_SESSION['idUser'] = $_POST['idUser'];
     }
@@ -45,6 +50,10 @@
 			}
 			?>
 		</header>
+		
+		<form id="disconnect_form" name="disconnect_form" method="post">
+		    <input type="hidden" name="disconnect" value="0"/>
+		</form>
 		
 		<nav class="navbar widget container">
 			<ul>

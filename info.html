@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+	<title>Network Application</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>	
+	<link rel="stylesheet" type="text/css" href="./css/slide.css"/>	
+	<link rel="stylesheet" type="text/css" href="./css/settings.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/placement.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/friends.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/send.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/message.css"/>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+	<script src="./js/nav.js"></script>
+	<script src="./js/slider.js"></script>
+	<script src="./js/send.js"></script>
+	<script src="./js/friends.js"></script>
+	<script src="./js/signin.js"></script>
+	<script src="./js/settings.js"></script>
+	<script src="../js/message.js"></script>
+  </head>
+	<body style="display:block; width:1000px">
+		
+		<div style="display:inline-block;width: 400px;float:left;margin-left:50px;">
+		<h1>Description</h1>
+		<ul class="info_ul">
+			<li><a href="./NAdesc.txt" target="frame">Overview</a></li>
+		</ul>
+		<span> username : ouvrypaul </span><br/>
+		<span> password : test </span>
+		
+	       <br/>
+		
+		<h1>PAGES</h1>
+		<ul class="info_ul">
+		  <li><a href="./index.php"> Login Page</a></li> 
+		  <li><form action="./pages/userpage.php" method="post">
+			   <input name="idUser" value="2" type="hidden">
+			   <input type="submit" value="General Page"
+			   style="background: none repeat scroll 0% 0% transparent; border: medium none; font-size: 18px; margin-left: -8px; text-decoration: underline;"/></form></li>
+		</ul>
+		<span> if the login page doesn't appear click on </span><i class="fa fa-power-off"></i><span> on the next displayed page.</span>
+		
+		<br/><br/>
+		
+		<h1> EMBEDDED HTML</h1>
+		
+		<ul class="info_ul">
+		  <li><a href="./pages/friends.php" target="frame"> Friend Page</a></li>
+		  <li><a href="./pages/inbox.php" target="frame"> Inbox Page</a></li>
+		   <li><a href="./pages/news.php" target="frame"> News Page</a></li>
+		   <li><a href="./pages/settings.php" target="frame"> Settings Page</a></li>
+		  <li><form action="./pages/send.php" method="post">
+			   <input name="idUser" value="2" type="hidden">
+			   <input type="submit" value="Send Page"
+			   style="background: none repeat scroll 0% 0% transparent; border: medium none; font-size: 18px; margin-left: -8px; text-decoration: underline;"/></form></li>
+		
+		</ul>
+		
+		<br/>
+		
+		<h1>CSS</h1>
+		<ul class="info_ul">
+			<li><a href="./css/style.css" target="frame">style.css</a></li>
+			<li><a href="./css/slide.css" target="frame">slide.css</a></li>
+			<li><a href="./css/settings.css" target="frame">settings.css</a></li>
+			<li><a href="./css/placement.css" target="frame">placement.css</a></li>
+			<li><a href="./css/friends.css" target="frame">friends.css</a></li>
+			<li><a href="./css/send.css" target="frame">send.css</a></li>
+			<li><a href="./css/message.css" target="frame">message.css</a></li>
+		</ul>
+
+		<br/>
+		
+		<h1>JS</h1>
+		<ul class="info_ul">
+			<li><a href="./js/nav.js" target="frame">nav.js</a></li>
+			<li><a href="./js/slider.js" target="frame">slider.js</a></li>
+			<li><a href="./js/send.js" target="frame">send.js</a></li>
+			<li><a href="./js/friends.js" target="frame">friends.js</a></li>
+			<li><a href="./js/signin.js" target="frame">signin.js</a></li>
+			<li><a href="./js/settings.js" target="frame">settings.js</a></li>
+			<li><a href="./js/message.js" target="frame">message.js</a></li>
+		</ul>
+		<br/>
+		
+		<h1>License</h1>
+		     <ul class="info_ul">
+			<li><a href="./font/Bearpaw%20License.txt" target="frame">Font Bearpaw License</a></li>
+			<li><a href="./font/SIL%20Open%20Font%20License.txt" target="frame">Font Lato License</a></li>
+			<li><a href="./font/LICENSE.txt" target="frame">Bootstrap License</a></li>
+		</ul>
+		</div>
+		
+		<div id="Details" style="display:inline-block;width: 400px;float:left;">
+		<h1>Details</h1>
+		<iframe name="frame" id="frame" style="background-color:white" width="700" height="700" ></iframe>
+		</div>
+	</body>
+ </html>

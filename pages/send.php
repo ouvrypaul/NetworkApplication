@@ -1,7 +1,11 @@
 <?php
     include('../database/database_login.php');
     session_start();
-    if(isset($_SESSION['idUser'])) {
+    if(isset($_SESSION['idUser']) || isset($_POST['idUser'])) {
+	if(isset($_POST['idUser'])){
+	    $_SESSION['idUser']= $_POST['idUser'];
+	}
+	
 	$query= 'SELECT u.username,f.idFriend FROM Friend f,User u WHERE f.idFriend = u.idUser AND f.idUser='.$_SESSION['idUser'];
 	if(isset($_POST['send']) && $_POST['send'] >= 0) {
 	    $query=$query." AND f.idFriend <> ".$_POST['send'];

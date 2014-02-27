@@ -10,8 +10,8 @@
     */
 	
     /* STEPHANIE 1 */
-	/*$cmd = mysql_connect('localhost', 'root', '') or die('Could not connect'.mysql_error());
-	$cnx = mysql_select_db('test') or die('Could not select database'.mysql_error());
-	*
+    /*$cmd = mysql_connect('localhost', 'root', '') or die('Could not connect'.mysql_error());
+    $cnx = mysql_select_db('test') or die('Could not select database'.mysql_error());
+    */
 ?>
 

@@ -11,8 +11,10 @@ function unlock() {
 	var message = document.getElementById('message');
 	
 	//first animation
+	lock.style.WebkitTransform="rotate(180deg)";
 	lock.style.transform="rotate(180deg)";
 	setTimeout(function(){
+		lock.style.WebkitTransform="rotate(-90deg)";
 		lock.style.transform="rotate(-90deg)";
 		lock.style.opacity="0";
 	},1000);
