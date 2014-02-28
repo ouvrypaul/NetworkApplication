@@ -1,4 +1,4 @@
-var delay = 5000;
+var delay = 8000;
 var sec=delay/1000;
 var i;
 	
@@ -9,14 +9,24 @@ function unlock() {
 	var lock = document.getElementById('lock_envelope');
 	var footer = document.getElementById('foot_envelope');
 	var message = document.getElementById('message');
+	var h2 = document.getElementById('h2');
+	
 	
 	//first animation
 	lock.style.WebkitTransform="rotate(180deg)";
 	lock.style.transform="rotate(180deg)";
 	setTimeout(function(){
-		lock.style.WebkitTransform="rotate(-90deg)";
-		lock.style.transform="rotate(-90deg)";
-		lock.style.opacity="0";
+		lock.style.WebkitTransform="rotate(45deg)";
+		lock.style.transform="rotate(45deg)";
+		setTimeout(function(){
+			lock.style.WebkitTransform="rotate(105deg)";
+			lock.style.transform="rotate(105deg)";
+			setTimeout(function(){
+				lock.style.WebkitTransform="rotate(90deg)";
+				lock.style.transform="rotate(90deg)";
+				lock.style.opacity="0";
+			},1000);
+		},1000);
 	},1000);
 	
 	//open
@@ -24,7 +34,8 @@ function unlock() {
 		countdown.innerHTML="Open";
 		lock.style.visibility='hidden';
 		header.style.top="-50%";
-		footer.style.bottom="-50%";		
+		footer.style.bottom="-50%";	
+		h2.style.marginTop="50px";
 	},3000);
 				
 	//when animation finished then wait and close
@@ -91,5 +102,6 @@ function destroyMessage() {
 	message.remove();
 	d=1;
 	state();
+	setTimeout("next(4)",1000);
 }
 	

@@ -19,7 +19,7 @@
          border:none;
 	text-align:center;
 	height:100%;
-	width:4000px;
+	width:3200px;
 	-webkit-transition:all 1.0s ease-in-out;
 	-moz-transition:all 1.0s ease-in-out;
 	-o-transition:all 1.0s ease-in-out;
@@ -83,7 +83,18 @@ border: none !important;
 	cursor:pointer;
 	transition:all 1.0s ease-in-out;
 }
-.div_mess{
 
+#h1{
+	transition:all 1.0s ease-in-out;	
+	padding-left: 0px !important;
+}
+
+#h2{
+	margin-top:65px;
+	transition:all 1.0s ease-in-out;	
+	padding-left: 0px !important;
+}
+
+.div_mess{
 	height:300px;
 }

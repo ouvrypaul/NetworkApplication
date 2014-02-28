@@ -4,37 +4,35 @@
 	echo '<div class="heading"><h4> SETTINGS </h4></div>';
 	echo '<fieldset id="general_settings_fieldset" class="col-md-6"><legend>General settings</legend>';
 	echo '<form role="form">';
-		echo '<div class="text-group">';
-			echo '<p class="text">Username: </p>';
-			echo '<p class="text">Email address: </p>';
-			echo '<p class="text">Password: </p>';
-			echo '<p class="text">Comfirm password: </p>';
-		echo '</div>';
+		echo '<table>';
 		echo '<div class="group">';
 			if(isset($_SESSION['idUser'])){
 				$queryData = 'SELECT u.username,u.email FROM User u WHERE u.idUser='.$_SESSION['idUser'];
 				$result = mysql_query($queryData) or die('Query Data failed (userpage.php): ' . mysql_error());
 				$line = mysql_fetch_row($result);
-				echo '<input type="text" class="text large" value="'.$line[0].'" required autofocus><br/><br/>';
-				echo '<input type="email" class="text large" value="'.$line[1].'" required autofocus><br/><br/>';
+				echo '<tr><td><p class="text">Username: </p></td><td><input type="text" class="text large" value="'.$line[0].'" required autofocus></td></tr>';
+				echo '<tr><td><p class="text">Email address: </p></td><td><input type="email" class="text large" value="'.$line[1].'" required autofocus></td></tr>';
 			} else {
-				echo '<input type="text" class="text large" placeholder="Username" required autofocus><br/><br/>';
-				echo '<input type="email" class="text large" placeholder="Email address" required autofocus><br/><br/>';
+				echo '<tr><td><p class="text">Username: </p></td><td><input type="text" class="text large" placeholder="Username" required autofocus></td></tr>';
+				echo '<tr><p class="text">Email address: </p></td><td><input type="email" class="text large" placeholder="Email address" required autofocus></td></tr>';
 			}
 			
-			echo '<input type="password" class="text large" placeholder="Password" required><br/><br/>';
-			echo '<input type="password" class="text large" placeholder="Confirm password" required><br/><br/>';
+			echo '<tr><td><p class="text">Password: </p></td><td><input type="password" class="text large" placeholder="Password" required></td></tr>';
+			echo '<tr><td><p class="text">Comfirm password: </p></td><td><input type="password" class="text large" placeholder="Confirm password" required></td></tr>';
+		echo '</table>';
 		echo '</div>';
 		echo'<input type="submit" class="button" value="Submit"/>';
 	echo '</form>';
 	echo '</fieldset>';
 	echo '<fieldset id="design_settings_fieldset" class="col-md-5"><legend>Design settings</legend>';
-			echo 'Header image: ';
-			echo '<input id="header_finder" class="button" type="file" name="pic" accept="image/*" /><br/><br/>';
-			echo 'Profile image: ';
-			echo '<input id="profile_finder" class="button" type="file" name="pic" accept="image/*" /><br/><br/>';
-			echo 'Profile color: ';
-			echo '<input type="text"  placeholder="#ffffff"/><br/><br/>';
+			echo '<table id="design_table">';
+			echo '<tr><td>Header image: </td><td>';
+			echo '<input id="header_finder" class="button" type="file" name="pic" accept="image/*" /></td></tr>';
+			echo '<tr><td>Profile image: </td><td>';
+			echo '<input id="profile_finder" class="button" type="file" name="pic" accept="image/*" /></td></tr>';
+			echo '<tr><td>Profile color: </td><td>';
+			echo '<input type="text"  placeholder="#ffffff"/></td></tr>';
+			echo '</table>';
 		echo '<div class="col-md-12">';
 		echo '<input class="button" id="submit" type="submit" value="Submit"><br/>';
 		echo '</div>';

@@ -1,17 +1,16 @@
 #countdown {
-	width: 100px;
+	width: 150px;
 	margin-left: auto;
 	margin-right: auto;
-	border-radius: 10px;
+	border-radius: 5px;
 	text-align: center;
-	background-color: #dfeef9;
+	cursor:default;
 }
 
 #envelope {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 100px;
 	text-align: center;
 	
 }
@@ -35,10 +34,12 @@
 #logo {
 	width: inherit;
 	height: inherit;
+	margin-left: 30px;
+	cursor:pointer;
 }
 
 #letter, #envelope {
-	width: 300px;
+	width: 500px;
 	height: 200px;
 }
 
@@ -86,5 +87,10 @@
 	-o-transition: bottom 2s, width 2s, height 2s;
 	-ms-transition: bottom 2s, width 2s, height 2s;
 
+}
+
+#destroy {
+	margin: 0px;
+margin-top: -10px;
 }
 

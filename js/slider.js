@@ -35,15 +35,15 @@ function test(){
 	var right = document.getElementById("right");
 	var left = document.getElementById("left");
 	var back = document.getElementById("back");
-	var truc = document.getElementById("truc");
+	var h1 = document.getElementById("h1");
 	
-	top.style.marginTop="-100px"
-	left.style.marginTop="-48px";	
+	top.style.marginTop="-50px"
+	left.style.marginTop="0px";	
 	left.style.marginLeft="-230px";
 	right.style.marginLeft="500px";
-	back.style.marginTop="150px";
+	back.style.marginTop="250px";
 	back.style.marginLeft="-520px";
-	truc.innerHTML="";
+	h1.style.marginTop="-80px";
 	setTimeout("retour()",2000);
 	
 }
@@ -54,6 +54,7 @@ function retour(){
 	var right = document.getElementById("right");
 	var left = document.getElementById("left");
 	var back = document.getElementById("back");
+	var h1 = document.getElementById("h1");
 
 	top.style.marginTop="0px"
 	left.style.marginTop="-145px";	
@@ -61,7 +62,7 @@ function retour(){
 	right.style.marginLeft="55px";
 	back.style.marginTop="-145px";
 	back.style.marginLeft="-298px";
-	
+	h1.style.marginTop="0px";
 	setTimeout("end()",2000);
 }
 
@@ -70,6 +71,7 @@ function end() {
 	var right = document.getElementById("right");
 	var left = document.getElementById("left");
 	var back = document.getElementById("back");
+	var h1 = document.getElementById("h1");
 
 	top.style.width="0px";
 	top.style.height="0px";
@@ -79,6 +81,7 @@ function end() {
 	left.style.height="0px";
 	back.style.width="0px";
 	back.style.height="0px";
+	h1.innerHTML="";
 	
 	setTimeout("next(4)",1000);
 }

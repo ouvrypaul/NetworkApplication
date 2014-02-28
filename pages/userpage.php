@@ -16,7 +16,7 @@
     
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
    <head>
 	<title>Network Application</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -57,7 +57,7 @@
 		
 		<nav class="navbar widget container">
 			<ul>
-				<li class="active"><i class="fa fa-spinner" onclick="nav(0,-1)"></i></li>
+				<li><i class="fa fa-spinner" onclick="nav(0,-1)"></i></li>
 				<li><i class="fa fa-envelope" onclick="nav(1,-1)"></i></li>
 				<li><i class="fa fa-group" onclick="nav(2,-1)"></i></li>
 				<li><i class="fa fa-pencil-square-o" onclick="nav(3,-1)"></i></li>

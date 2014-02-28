@@ -1,4 +1,10 @@
 <?php
+	echo $_SERVER['HTTP_USER_AGENT'];
+	if(!ereg("Mozilla/5.0", $_SERVER["HTTP_USER_AGENT"])) {
+		echo "<script language=\"javascript\">";
+		echo "window.location='./pages/error.php';";
+		echo "</script>"; 
+	}
     include './database/database_login.php';
     session_start();
     
@@ -47,7 +53,7 @@
     
   	          <input name="login" type="text" class="text" placeholder="Username" required autofocus><br/>
 		  <input name="password" type="password" class="text" placeholder="Password" required><br/>
-		  <button class="button" type="submit">Sign in</button>
+		  <button class="button" type="submit">Go !</button>
 		  <button class="button" type="button" onclick="signupSlides('1');" >Sign up</button>
 		  <?php
 		    if(isset($_POST['login'])){
@@ -65,7 +71,7 @@
 		  <input id="email" type="email" class="text" placeholder="Email address" required autofocus><br/>
 		  <input id="password" type="password" class="text" placeholder="Password" required><br/>
 		  <input id="password_again" type="password" class="text" placeholder="Confirm password" required><br/>
-		  <button class="button" type="submit">Sign up</button>
+		  <button class="button" type="submit">Go !</button>
 		  <button class="button" type="button" onclick="signupSlides('2');" >Sign in</button>
 		  <span id="error_signup" class="error"></span>
 	      </form>
