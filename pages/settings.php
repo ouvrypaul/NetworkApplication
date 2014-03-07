@@ -31,7 +31,30 @@
 			echo '<tr><td>Profile image: </td><td>';
 			echo '<input id="profile_finder" class="button" type="file" name="pic" accept="image/*" /></td></tr>';
 			echo '<tr><td>Profile color: </td><td>';
-			echo '<input type="text"  placeholder="#ffffff"/></td></tr>';
+			//echo '<input type="text"  placeholder="#ffffff"/></td></tr>';
+			echo 'R: ';
+		    echo '<select id="R">';
+		    for($i=0;$i<256;$i++) {
+		    	echo "<option>".$i."</option>";
+		    }
+		    echo "</select>";
+		    echo 'G: ';
+		    echo '<select id="G">';
+		    for($i=0;$i<256;$i++) {
+		    	echo "<option>".$i."</option>";
+		    }
+		    echo "</select>";
+		    echo 'B: ';
+		    echo '<select id="B">';
+		    for($i=0;$i<256;$i++) {
+		    	echo "<option>".$i."</option>";
+		    }
+		    echo "</select>";
+		    echo 'Text: ';
+		    echo '<select id="text">';
+		    echo "<option>White</option>";
+			echo "<option>Black</option>";
+		    echo "</select>";
 			echo '</table>';
 		echo '<div class="col-md-12">';
 		echo '<input class="button" id="submit" type="submit" value="Submit"><br/>';
