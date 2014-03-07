@@ -1,12 +1,24 @@
 <?php
+session_start();
    header('content-type: text/css');
-
-  // $color = 'rgba(84,156,194,0.8)';
-   $color = 'rgba(249,236,217,0.8)';
-  // $url_cover = "url('../img/mountain.jpg')";
-   $url_cover = "url('../img/beach.jpeg')";
-   //$text ='#FFF';
-   $text ='#000';
+   
+   if(isset($_SESSION['color'])) {
+		$color = $_SESSION['color'];
+   } else {
+		$color =  'rgba(84,156,194,0.8)';
+   }
+   
+   if(isset($_SESSION['url_cover'])) {
+		$url_cover = $_SESSION['url_cover'];
+   } else {
+		$url_cover = "url('../img/mountain.jpg')";
+   }
+   
+   if(isset($_SESSION['text'])) {
+		$text = $_SESSION['text'];
+   } else {
+		$text ='#FFF';
+   }
 ?>
 
 @font-face {
@@ -69,7 +81,6 @@ a  {
 a:hover {
 	color:#296e73;
 }
-
 .widget {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;

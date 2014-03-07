@@ -7,12 +7,20 @@
     }
 
     include('../database/database_login.php');
+    include('../database/user.php');
     session_start();
+
     if(!isset($_SESSION['idUser'])) {
 	header('Location: ../index.php');
     } else if(isset($_POST['idUser'])){
-	$_SESSION['idUser'] = $_POST['idUser'];
+		$_SESSION['idUser'] = $_POST['idUser'];
     }
+	$user = new User();
+	$user->getUser($_SESSION['idUser']);
+	$_SESSION['color'] = 'rgba('.$user->red.','.$user->green.','.$user->blue.',0.8)';
+	$_SESSION['url_cover'] = 'url(\'../img/'.$user->coverPath.'\')';
+	if ($user->text == 0) $_SESSION['text'] = '#FFF';
+	else $_SESSION['text'] = '#000';
     
 ?>
 <!DOCTYPE html>
@@ -42,11 +50,7 @@
 		<header class="header widget container ">
 			<?php
 			if(isset($_SESSION['idUser'])){
-				$i=0;
-				$queryData = 'SELECT u.username,u.imagePath FROM User u WHERE u.idUser='.$_SESSION['idUser'];
-				$result = mysql_query($queryData) or die('Query Data failed (userpage.php): ' . mysql_error());
-				$line = mysql_fetch_row($result);
-				echo '<img onclick="nav(4,-1)" class="left" src="../img/profil/'.$line[1].'" alt="photoid"/><h1 id="username" onclick="nav(4,-1)">'.$line[0].'</h1>';
+				echo '<img onclick="nav(4,-1)" class="left" src="../img/profil/'.$user->imagePath.'" alt="photoid"/><h1 id="username" onclick="nav(4,-1)">'.$user->username.'</h1>';
 			}
 			?>
 		</header>
