@@ -65,13 +65,8 @@ CREATE TABLE `User` (
   `idUser` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) COLLATE utf8_bin NOT NULL,
   `imagePath` varchar(30) COLLATE utf8_bin NOT NULL,
-  `coverPath` varchar(30) COLLATE utf8_bin NOT NULL,
   `email` varchar(30) COLLATE utf8_bin NOT NULL,
   `password` varchar(32) COLLATE utf8_bin NOT NULL,
-  `red` int(3) COLLATE utf8_bin NOT NULL,
-  `green` int(3) COLLATE utf8_bin NOT NULL,
-  `blue` int(3) COLLATE utf8_bin NOT NULL,
-  `text` int(1) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=36 ;
 
@@ -79,24 +74,24 @@ CREATE TABLE `User` (
 -- Contenu de la table `User`
 --
 
-INSERT INTO `User` (`idUser`, `username`, `imagePath`,`coverPath`, `email`, `password`,`red`,`green`,`blue`,`text`) VALUES
-(1, 'admin', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(2, 'ouvrypaul', 'paul.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(3, 'noelstepha', 'stephanie.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(4, 'florentgo', 'florent.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(5, 'dufaunicol', 'nicolas.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(6, 'daviddogne', 'david.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(7, 'lepagethom', 'thomasl.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(8, 'giovannini', 'thomas.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(9, 'example1', 'none.png','mountain.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(11, 'example3', 'none.png','mountain.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(12, 'example4', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(13, 'example5', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(15, 'example7', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(16, 'example8', 'none.png','mountain.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(25, 'ouvrylea', 'lea.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(27, 'ouvryarthu', 'arthur.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(31, 'marechalad', 'adrienne.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0);
+INSERT INTO `User` (`idUser`, `username`, `imagePath`, `email`, `password`) VALUES
+(1, 'admin', 'none.png', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(2, 'ouvrypaul', 'paul.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(3, 'noelstepha', 'stephanie.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(4, 'florentgo', 'florent.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(5, 'dufaunicol', 'nicolas.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(6, 'daviddogne', 'david.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(7, 'lepagethom', 'thomasl.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(8, 'giovannini', 'thomas.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(9, 'example1', 'none.png', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(11, 'example3', 'none.png', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(12, 'example4', 'none.png', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(13, 'example5', 'none.png', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(15, 'example7', 'none.png', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(16, 'example8', 'none.png', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(25, 'ouvrylea', 'lea.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(27, 'ouvryarthu', 'arthur.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6'),
+(31, 'marechalad', 'adrienne.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6');
 
 --
 -- Contraintes pour les tables exportées

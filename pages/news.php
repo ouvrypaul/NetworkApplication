@@ -39,7 +39,7 @@ echo'<table class="border-top">';
                                             echo'<button class="button" id="destroy" type="button" onclick="destroyMessage()" >Destroy</button>';
                                         echo'</td>';
 					echo'<td class="slide">';
-						echo'<h3>Machin + Stephanie = &lt;3 now !</h3>';
+						echo'<h3>Paul + Florent = &lt;3 now !</h3>';
 						echo'<img src="../img/heart.png" alt="heart"/><br/>';
 						echo'<input class="button" type="button" name="ok" value="OK"/>';
 						echo'<input class="button" type="button" name="message" value="Send a message" onclick="nav(3,4)"/>';

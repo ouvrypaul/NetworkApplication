@@ -11,11 +11,11 @@
             if($line[3] == "1"){ 
                 echo '<td>';
                 echo '<div class="div_person">';
-                echo '<table class="friend_table"><tr class="tr_move"><td><img class="friend_pic" src="../img/profil/'.$line[2].'"/></td>
+                echo '<table class="friend_table"><tr class="tr_move"><td><img  alt="avatar" class="friend_pic" src="../img/profil/'.$line[2].'"/></td>
                 <td rowspan="3"><div class="div_hidden_friend"> Hi! I am '.$line[1].'</div></td></tr></table>';
                 echo '<table class="unmove_table">';
-                echo '<tr><td><img class="img_icon" src="../img/unfriend.png" onclick="unfriend('.$line[0].')" />
-                <img class="img_icon" src="../img/message.png" onclick="nav(3,'.$line[0].')"/></td></tr></table><table class="friend_name">
+                echo '<tr><td><img alt="ok" class="img_icon" src="../img/unfriend.png" onclick="unfriend('.$line[0].')" />
+                <img  alt="mess"  class="img_icon" src="../img/message.png" onclick="nav(3,'.$line[0].')"/></td></tr></table><table class="friend_name">
                 <tr><td><span>'.$line[1].'</span></td></tr></table>';
                 echo '</div></td>';
                 $i++;
@@ -24,6 +24,6 @@
                 }
             }
         }
-        echo '</tr></table>';
+        echo '<td></td></tr></table>';
     }
 ?>

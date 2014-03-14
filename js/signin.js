@@ -17,8 +17,10 @@ function signupSlides(i){
 }
 
 
-var letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
- 
+var letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+var at='@';
+var dot='.';
+
 function isValid(param,val) {
   if (param == "") {
     return false;
@@ -29,6 +31,16 @@ function isValid(param,val) {
   return true;
 }
 
+function contains(param,val){
+	if(param==""){ 
+		return false;
+	}
+	for(i=0; i<param.length; i++) {
+		 if (val.indexOf(param.charAt(i),0) == 0) return true;
+	}
+	return false;
+}
+
 function addSignUp(){
     var res="";
     var error = document.getElementById("error_signup");
@@ -36,26 +48,29 @@ function addSignUp(){
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var password2 = document.getElementById("password_again").value;
+    var form = document.getElementById("signup_form");
     
     if (!isValid(username,letters)){
-            error.innerHTML = "You username must only contains characters (A-Za-z).";
+            error.innerHTML = "You username must only contains letters.";
             setTimeout("revertErrorSignup()",5000);
     } else if (username.length>10 ||username.length<5) {
             error.innerHTML = "You username must contains between 5 and 10 characters.";
             setTimeout("revertErrorSignup()",5000);
-    } else if (password != password2) {
-            error.innerHTML = "Your two password are not the same.";
+    } else if (!contains(email,at) || !contains(email,dot)) {
+        	error.innerHTML = "Please enter a correct email.";
+        	setTimeout("revertErrorSignup()",5000);
+    } else if (password != password2 || password.length>5) {
+            error.innerHTML = "Your two password are not the same or have not enough letters.";
             setTimeout("revertErrorSignup()",5000);
     } else {
             var xhr = getXhr();	
             xhr.onreadystatechange = function(){
                 if((xhr.readyState == 4) && (xhr.status == 200)){
                     tmp = xhr.responseText;
-                    if (tmp=="") {
-                            window.location='./pages/userpage.php';
+                    if (tmp.length < 5) {
+                      	form.submit();
                     } else {
-                            error.innerHTML = tmp;
-                            
+                        error.innerHTML = tmp;    
                     }
                 }	
             }	
@@ -63,7 +78,6 @@ function addSignUp(){
             xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
             xhr.send("name="+name+"&username="+username+"&email="+email+"&password="+password);
     }
-    return false;	
 }
 
 function revertErrorSignup(){

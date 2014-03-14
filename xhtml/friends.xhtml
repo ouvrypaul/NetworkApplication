@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+   <head>
+	<title>Network Application</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>	
+	<link rel="stylesheet" type="text/css" href="../css/slide.css"/>	
+	<link rel="stylesheet" type="text/css" href="../css/settings.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/placement.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/friends.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/send.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/message.css"/>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+	<script type="text/javascript" src="../js/nav.js"></script>
+	<script type="text/javascript" src="../js/slider.js"></script>
+	<script type="text/javascript" src="../js/send.js"></script>
+	<script type="text/javascript" src="../js/friends.js"></script>
+	<script type="text/javascript" src="../js/signin.js"></script>
+	<script type="text/javascript" src="../js/settings.js"></script>
+	<script type="text/javascript" src="../js/message.js"></script>
+  </head>
+	<body>
+		
+
+		<header>
+					<div class="header widget container">
+			<img onclick="nav(4,-1)" class="left" src="../img/profil/paul.jpg" alt="photoid"/><h1 id="username" onclick="nav(4,-1)">ouvrypaul</h1>					</div>
+		</header>
+
+		
+		<form id="disconnect_form" method="post" action="./userpage.php">
+		    <p><input type="hidden" name="disconnect"/></p>
+		</form>
+		
+		<nav>
+			<div class="navbar widget container">
+			<ul>
+				<li><i class="fa fa-spinner" onclick="nav(0,-1)"></i></li>
+				<li><i class="fa fa-envelope" onclick="nav(1,-1)"></i></li>
+				<li><i class="fa fa-group" onclick="nav(2,-1)"></i></li>
+				<li><i class="fa fa-pencil-square-o" onclick="nav(3,-1)"></i></li>
+				<li><i class="fa fa-cog" onclick="nav(4,-1)"></i></li>
+				<li><i class="fa fa-power-off" onclick="disconnect()"></i></li>
+			</ul>
+						</div>
+		</nav>
+		
+		<div id="div_transition">
+		    <section>
+<div id="section" class="widget container" style="height: 95%;">
+
+    <div class="heading">
+        <h4>
+
+             FRIENDS 
+
+        </h4>
+    </div>
+    <table id="main_table">
+        <tbody>
+            <tr>
+                <td id="td_search">
+                    <input id="input_search" type="text" onkeyup="searchFriends();"></input>
+                    <div id="div_friend_search"></div>
+                </td>
+                <td id="td_friends">
+                    <div id="div_friends">
+                        <table>
+                            <tbody>
+                                <tr class="line">
+                                    <td>
+                                        <div class="div_person">
+                                            <table class="friend_table">
+                                                <tbody>
+                                                    <tr class="tr_move">
+                                                        <td>
+                                                            <img alt="img" class="friend_pic" src="../img/profil/none.png"></img>
+                                                        </td>
+                                                        <td rowspan="3">
+                                                            <div class="div_hidden_friend">
+
+                                                                 Hi! I am example5
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="unmove_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img alt="img" class="img_icon" onclick="unfriend(13)" src="../img/unfriend.png"></img>
+                                                            <img alt="img" class="img_icon" onclick="nav(3,13)" src="../img/message.png"></img>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="friend_name">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span>
+
+                                                                example5
+
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="div_person">
+                                            <table class="friend_table">
+                                                <tbody>
+                                                    <tr class="tr_move">
+                                                        <td>
+                                                            <img alt="img" class="friend_pic" src="../img/profil/none.png"></img>
+                                                        </td>
+                                                        <td rowspan="3">
+                                                            <div class="div_hidden_friend">
+
+                                                                 Hi! I am example7
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="unmove_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img alt="img" class="img_icon" onclick="unfriend(15)" src="../img/unfriend.png"></img>
+                                                            <img alt="img" class="img_icon" onclick="nav(3,15)" src="../img/message.png"></img>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="friend_name">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span>
+
+                                                                example7
+
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="div_person">
+                                            <table class="friend_table">
+                                                <tbody>
+                                                    <tr class="tr_move">
+                                                        <td>
+                                                            <img alt="img" class="friend_pic" src="../img/profil/none.png"></img>
+                                                        </td>
+                                                        <td rowspan="3">
+                                                            <div class="div_hidden_friend">
+
+                                                                 Hi! I am example8
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="unmove_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img alt="img" class="img_icon" onclick="unfriend(16)" src="../img/unfriend.png"></img>
+                                                            <img alt="img" class="img_icon" onclick="nav(3,16)" src="../img/message.png"></img>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="friend_name">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span>
+
+                                                                example8
+
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="div_person">
+                                            <table class="friend_table">
+                                                <tbody>
+                                                    <tr class="tr_move">
+                                                        <td>
+                                                            <img alt="img" class="friend_pic" src="../img/profil/florent.jpg"></img>
+                                                        </td>
+                                                        <td rowspan="3">
+                                                            <div class="div_hidden_friend">
+
+                                                                 Hi! I am florentgo
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="unmove_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img alt="img" class="img_icon" onclick="unfriend(4)" src="../img/unfriend.png"></img>
+                                                            <img alt="img" class="img_icon" onclick="nav(3,4)" src="../img/message.png"></img>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="friend_name">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span>
+
+                                                                florentgo
+
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="div_person">
+                                            <table class="friend_table">
+                                                <tbody>
+                                                    <tr class="tr_move">
+                                                        <td>
+                                                            <img alt="img" class="friend_pic" src="../img/profil/arthur.jpg"></img>
+                                                        </td>
+                                                        <td rowspan="3">
+                                                            <div class="div_hidden_friend">
+
+                                                                 Hi! I am ouvryarthu
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="unmove_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img alt="img" class="img_icon" onclick="unfriend(27)" src="../img/unfriend.png"></img>
+                                                            <img alt="img" class="img_icon" onclick="nav(3,27)" src="../img/message.png"></img>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="friend_name">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span>
+
+                                                                ouvryarthu
+
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="line"><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td id="td_request">
+                    <div id="div_request">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="div_person_request">
+                                            <table class="request_table">
+                                                <tbody>
+                                                    <tr class="tr_move">
+                                                        <td>
+                                                            <img alt="img" class="request_pic" src="../img/profil/adrienne.jpg"></img>
+                                                        </td>
+                                                        <td rowspan="3">
+                                                            <div class="div_hidden_request">
+                                                                <img alt="img" class="img_high_plus" onclick="addFriend(31)" src="../img/high_plus.png"></img>
+                                                                <div class="request_name">
+
+                                                                    marechalad
+
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="div_person_request">
+                                            <table class="request_table">
+                                                <tbody>
+                                                    <tr class="tr_move">
+                                                        <td>
+                                                            <img alt="img" class="request_pic" src="../img/profil/stephanie.jpg"></img>
+                                                        </td>
+                                                        <td rowspan="3">
+                                                            <div class="div_hidden_request">
+                                                                <img alt="img" class="img_high_plus" onclick="addFriend(3)" src="../img/high_plus.png"></img>
+                                                                <div class="request_name">
+
+                                                                    noelstepha
+
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ </section>
+		</div>
+		<p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  </p>
+	</body>
+ </html>

@@ -48,10 +48,12 @@ function unlock() {
 				message.remove();
 				header.style.top='0px';
 				footer.style.bottom='0px';
+				setTimeout("destroyMessage()",2000);
 			},delay);
 			}
 		)				
 	}
+
 }
 
 //countdown functions
@@ -84,6 +86,7 @@ function state(){
 	}
 	else{
 		countdown.innerHTML="Time out!";
+		clearInterval(i);
 	}
 }
 
@@ -98,10 +101,7 @@ function destroyMessage() {
 	header.style.height ="0px";
 	footer.style.width="0px";
 	footer.style.height="0px";
-	lock.remove();
-	message.remove();
 	d=1;
 	state();
-	setTimeout("next(4)",1000);
 }
 	

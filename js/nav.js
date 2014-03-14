@@ -56,10 +56,6 @@ function tab(index,send){
     
 }
 
-
-
-
-
 function disconnect(){
 	document.getElementById("disconnect_form").submit();
 }

@@ -17,11 +17,11 @@
                 $test =$line2[0];
             }
             if($test==0) {
-                $string=$string.'<table class="people"><tr><td><img class="people_img" src="../img/profil/'.$line[2].'"/></td><td class="td_username">'.$line[1].'</td><td>
-                <img class="plus" src="../img/unfriend.png" onclick="unrequest('.$line[0].')"/></td></tr></table>';
+                $string=$string.'<table class="people"><tr><td><img  alt="avatar"  class="people_img" src="../img/profil/'.$line[2].'"/></td><td class="td_username">'.$line[1].'</td><td>
+                <img  alt="plus" class="plus" src="../img/unfriend.png" onclick="unrequest('.$line[0].')"/></td></tr></table>';
             } else {
                 $string=$string.'<table class="people"><tr><td><img class="people_img" src="../img/profil/'.$line[2].'"/></td><td class="td_username">'.$line[1].'</td><td>
-                <img class="plus" src="../img/plus.png" onclick="addRequest('.$line[0].')"/></td></tr></table>';
+                <img  alt="unrequest"  class="plus" src="../img/plus.png" onclick="addRequest('.$line[0].')"/></td></tr></table>';
             }
         }
     }

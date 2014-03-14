@@ -41,7 +41,7 @@
 		    echo 'Text: ';
 		    echo '<input type="checkbox" id="checkbox_text" onchange="change(0)"/>';
 		    echo '<input type="text" id="title_text" disabled /><br/>';
-	    	echo '<textarea rows="10" id="text_text"></textarea><br/>';
+	    	echo '<textarea rows="10" cols="90" id="text_text"></textarea><br/>';
 		    echo '<table><tr><td>';
 		    echo 'Photo: ';
 		    echo '<input type="checkbox" id="checkbox_img" name="check" onchange="change(1)"/>';
