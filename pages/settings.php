@@ -3,7 +3,7 @@
 	session_start();
 	echo '<div class="heading"><h4> SETTINGS </h4></div>';
 	echo '<fieldset id="general_settings_fieldset" class="col-md-6"><legend>General settings</legend>';
-	echo '<form action="./userpage.php">';
+	echo '<form role="form">';
 		echo '<table>';
 		echo '<div class="group">';
 			if(isset($_SESSION['idUser'])){
@@ -21,7 +21,7 @@
 			echo '<tr><td><p class="text">Comfirm password: </p></td><td><input type="password" class="text large" placeholder="Confirm password" required></td></tr>';
 		echo '</table>';
 		echo '</div>';
-		echo'<p><input type="submit" class="button" value="Submit"/></p>';
+		echo'<input type="submit" class="button" value="Submit"/>';
 	echo '</form>';
 	echo '</fieldset>';
 	echo '<fieldset id="design_settings_fieldset" class="col-md-5"><legend>Design settings</legend>';
@@ -31,7 +31,30 @@
 			echo '<tr><td>Profile image: </td><td>';
 			echo '<input id="profile_finder" class="button" type="file" name="pic" accept="image/*" /></td></tr>';
 			echo '<tr><td>Profile color: </td><td>';
-			echo '<input type="text"  placeholder="#ffffff"/></td></tr>';
+			//echo '<input type="text"  placeholder="#ffffff"/></td></tr>';
+			echo 'R: ';
+		    echo '<select id="R">';
+		    for($i=0;$i<256;$i++) {
+		    	echo "<option>".$i."</option>";
+		    }
+		    echo "</select>";
+		    echo 'G: ';
+		    echo '<select id="G">';
+		    for($i=0;$i<256;$i++) {
+		    	echo "<option>".$i."</option>";
+		    }
+		    echo "</select>";
+		    echo 'B: ';
+		    echo '<select id="B">';
+		    for($i=0;$i<256;$i++) {
+		    	echo "<option>".$i."</option>";
+		    }
+		    echo "</select>";
+		    echo 'Text: ';
+		    echo '<select id="text">';
+		    echo "<option>White</option>";
+			echo "<option>Black</option>";
+		    echo "</select>";
 			echo '</table>';
 		echo '<div class="col-md-12">';
 		echo '<input class="button" id="submit" type="submit" value="Submit"><br/>';
