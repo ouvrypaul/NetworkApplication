@@ -21,12 +21,13 @@
         echo "Email already used.";
     } else {
         if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])) {
-            $queryInsert = "INSERT INTO User values(null,'".$_POST['username']."','none.png','".$_POST['email']."','".md5($_POST['password'])."')";
+            $queryInsert = "INSERT INTO User values(null,'".$_POST['username']."','none.png','mountain.jpg','".$_POST['email']."','".md5($_POST['password'])."',84,156,194,0)";
             $result = mysql_query($queryInsert) or die('Query insert failed: ' . mysql_error());
-            $queryCheck = 'SELECT idUser FROM User WHERE username="'.$_POST['username'].'"';
+            $queryCheck = 'SELECT idUser,username FROM User WHERE username="'.$_POST['username'].'"';
             $result = mysql_query($queryCheck) or die('Query research failed: ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
                 $_SESSION['idUser']=$line[0];
+                mkdir("../img/profil/".$line[1], 755);
             }
         }
     }

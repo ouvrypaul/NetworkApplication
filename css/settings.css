@@ -7,11 +7,17 @@
 	padding: 8px;
 	font-size: 16px;
 	margin-left: 25px;
+	width: 221px;
 }
 
-.large {
-	width:300px;
+.ok {
+	width:70px;
 }
+
+.head {
+	width:113px;
+}
+
 .text-group {
 	float : left;
 }

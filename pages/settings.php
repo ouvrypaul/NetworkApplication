@@ -1,37 +1,41 @@
 <?php
 	include('../database/database_login.php');
+	include('../database/user.php');
 	session_start();
 	echo '<div class="heading"><h4> SETTINGS </h4></div>';
-	echo '<fieldset id="general_settings_fieldset" class="col-md-6"><legend>General settings</legend>';
-	echo '<form role="form">';
+	echo '<fieldset id="general_settings_fieldset" class="col-md-5"><legend>General settings</legend>';
+	echo '<form id ="general_form" action="./userpage.php" method="post">';
 		echo '<table>';
 		echo '<div class="group">';
-			if(isset($_SESSION['idUser'])){
-				$queryData = 'SELECT u.username,u.email FROM User u WHERE u.idUser='.$_SESSION['idUser'];
-				$result = mysql_query($queryData) or die('Query Data failed (userpage.php): ' . mysql_error());
-				$line = mysql_fetch_row($result);
-				echo '<tr><td><p class="text">Username: </p></td><td><input type="text" class="text large" value="'.$line[0].'" required autofocus></td></tr>';
-				echo '<tr><td><p class="text">Email address: </p></td><td><input type="email" class="text large" value="'.$line[1].'" required autofocus></td></tr>';
+			if(isset($_SESSION['user'])){
+				echo '<tr><td><p >Username: </p></td><td><input id="username2" type="text" class="text large" value="'.$_SESSION['user']->username.'" required autofocus></td></tr>';
+				echo '<tr><td><p>Email address: </p></td><td><input id="email" type="email" class="text large" value="'.$_SESSION['user']->email.'" required autofocus></td></tr>';
 			} else {
-				echo '<tr><td><p class="text">Username: </p></td><td><input type="text" class="text large" placeholder="Username" required autofocus></td></tr>';
-				echo '<tr><p class="text">Email address: </p></td><td><input type="email" class="text large" placeholder="Email address" required autofocus></td></tr>';
+				echo '<tr><td><p>Username: </p></td><td><input id="username" type="text" class="text large" placeholder="Username" required autofocus></td></tr>';
+				echo '<tr><p">Email address: </p></td><td><input id="email" type="email" class="text large" placeholder="Email address" required autofocus></td></tr>';
 			}
 			
-			echo '<tr><td><p class="text">Password: </p></td><td><input type="password" class="text large" placeholder="Password" required></td></tr>';
-			echo '<tr><td><p class="text">Comfirm password: </p></td><td><input type="password" class="text large" placeholder="Confirm password" required></td></tr>';
+			echo '<tr><td><p>Password: </p></td><td><input id="password" type="password" class="text large" placeholder="Password" required></td></tr>';
+			echo '<tr><td><p>Comfirm password: </p></td><td><input id="password_again" type="password" class="text large" placeholder="Confirm password" required></td></tr>';
 		echo '</table>';
 		echo '</div>';
-		echo'<input type="submit" class="button" value="Submit"/>';
+		echo'<input class="button" value="Submit" onclick="updateGeneral()"/>';
+		echo'<span id="error_general" class="error"></span>';
 	echo '</form>';
 	echo '</fieldset>';
-	echo '<fieldset id="design_settings_fieldset" class="col-md-5"><legend>Design settings</legend>';
+	echo '<fieldset id="design_settings_fieldset" class="col-md-6"><legend>Design settings</legend>';
 			echo '<table id="design_table">';
-			echo '<tr><td>Header image: </td><td>';
-			echo '<input id="header_finder" class="button" type="file" name="pic" accept="image/*" /></td></tr>';
-			echo '<tr><td>Profile image: </td><td>';
-			echo '<input id="profile_finder" class="button" type="file" name="pic" accept="image/*" /></td></tr>';
+			echo '<form id ="header_form" method="post" action="./settings/coverSettings.php" enctype="multipart/form-data">';
+			echo '<tr><td><p  class="head">Header image: </p></td><td>';
+			echo '<input id="header_finder" class="button" type="file" name="cover" accept="image/*" /></td>';
+			echo' <td><input class="button ok" value="Ok" type="submit"/></td></tr>';
+			echo '</form>';
+			echo '<tr><td>Profile image: </td>';
+			echo '<form id ="profil_form" method="post"  action="./settings/profilSettings.php" enctype="multipart/form-data">';
+			echo '<td><input id="profil_finder" class="button" type="file" name="profil_img" /></td>';
+			echo' <td><input class="button ok" value="Ok" type="submit"/></td></tr>';
+			echo '</form>';
 			echo '<tr><td>Profile color: </td><td>';
-			//echo '<input type="text"  placeholder="#ffffff"/></td></tr>';
 			echo 'R: ';
 		    echo '<select id="R">';
 		    for($i=0;$i<256;$i++) {
@@ -54,13 +58,14 @@
 		    echo '<select id="text">';
 		    echo "<option>White</option>";
 			echo "<option>Black</option>";
-		    echo "</select>";
+		    echo "</select></td>";
+		    echo' <td><input class="button ok" value="Ok" onclick="updateColor()"/></td></tr>';
 			echo '</table>';
 		echo '<div class="col-md-12">';
-		echo '<input class="button" id="submit" type="submit" value="Submit"><br/>';
+		echo'<span id="error_profil" class="error"></span>';
 		echo '</div>';
 	echo '</fieldset>';
-	echo '<fieldset id="delete_profile_fieldset" class="col-md-5"><legend>Delete Profile</legend>';
+	echo '<fieldset id="delete_profile_fieldset" class="col-md-6"><legend>Delete Profile</legend>';
 	echo '<input class="button" id="delete_profile" type="button" onclick="deleteUser()" value="Delete Profile">';
 	echo '<input type="checkbox" id="checkbox_delete"/> I want to delete all my personal details';
 	echo '</fieldset>';

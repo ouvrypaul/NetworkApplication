@@ -45,8 +45,10 @@
 		    echo '<table><tr><td>';
 		    echo 'Photo: ';
 		    echo '<input type="checkbox" id="checkbox_img" name="check" onchange="change(1)"/>';
-		    echo '<input class="button" id="img_finder" type="file" name="pic" disabled/>';
+		    echo '<form method="post"  action="./send/upload.php" enctype="multipart/form-data">';
+		    echo '<input class="button" id="img_finder" type="file" name="pic"/>';
 		    echo '<input class="button" id="submit" type="submit" value="Submit"/><br/>';
+		    echo '</form>';
 	    	echo '<div id="img_preview"></div>';
 		    echo '</td><td>';
 	    	echo 'Time: <br/>';
