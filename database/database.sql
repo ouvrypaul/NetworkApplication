@@ -81,22 +81,22 @@ CREATE TABLE `User` (
 
 INSERT INTO `User` (`idUser`, `username`, `imagePath`,`coverPath`, `email`, `password`,`red`,`green`,`blue`,`text`) VALUES
 (1, 'admin', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(2, 'ouvrypaul', 'paul.jpg','beach.jpeg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',249,236,217,1),
-(3, 'noelstepha', 'stephanie.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(4, 'florentgo', 'florent.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(5, 'dufaunicol', 'nicolas.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(6, 'daviddogne', 'david.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(7, 'lepagethom', 'thomasl.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(8, 'giovannini', 'thomas.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(2, 'ouvrypaul', 'ouvrypaul/paul.jpg','ouvrypaul/beach.jpeg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',249,236,217,1),
+(3, 'noelstepha', 'noelstepha/stephanie.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(4, 'florentgo', 'florentgo/florent.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(5, 'dufaunicol', 'dufaunicol/nicolas.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(6, 'daviddogne', 'daviddogne/david.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(7, 'lepagethom', 'lepagethom/thomasl.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(8, 'giovannini', 'giovannini/thomas.jpg','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
 (9, 'example1', 'none.png','mountain.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
 (11, 'example3', 'none.png','mountain.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
 (12, 'example4', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
 (13, 'example5', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
 (15, 'example7', 'none.png','mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
 (16, 'example8', 'none.png','mountain.jpg', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(25, 'ouvrylea', 'lea.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(27, 'ouvryarthu', 'arthur.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
-(31, 'marechalad', 'adrienne.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0);
+(25, 'ouvrylea', 'ouvrylea/lea.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(27, 'ouvryarthu', 'ouvryarthu/arthur.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0),
+(31, 'marechalad', 'marechalad/adrienne.jpg', 'mountain.jpg','test@test.com', '098f6bcd4621d373cade4e832627b4f6',84,156,194,0);
 
 --
 -- Contraintes pour les tables exportées
