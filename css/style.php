@@ -7,6 +7,12 @@ session_start();
    } else {
 		$color =  'rgba(84,156,194,0.8)';
    }
+
+   if(isset($_SESSION['light_color'])) {
+		$lightColor = $_SESSION['light_color'];
+   } else {
+		$lightColor =  'rgba(84,156,194,0.4)';
+   }
    
    if(isset($_SESSION['url_cover'])) {
 		$url_cover = $_SESSION['url_cover'];
@@ -232,7 +238,7 @@ li{
 	-o-border-radius: 2px;
 	border-radius: 2px;
 	color: <?php echo $text; ?>;
-	background-color: <?php echo $color; ?>;;
+	background-color: <?php echo $color; ?>;
 	border-color: #285E8E;
 	border: 1px solid transparent;
 	text-align: center;
@@ -262,4 +268,20 @@ li{
 
 .info_ul{
     margin-top: -75px;
+}
+
+.div_person{
+    color: <?php echo $text; ?>;
+    background-color: <?php echo $lightColor; ?>;
+    
+}
+
+.friend_mess{
+    color: <?php echo $text; ?>;
+    background-color: <?php echo $lightColor; ?>;
+}
+
+#time{
+  color: <?php echo $text; ?>;
+    background-color: <?php echo $color; ?>;
 }

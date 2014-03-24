@@ -20,6 +20,7 @@
     $_SESSION['user'] = $user;	
 
 	$_SESSION['color'] = 'rgba('.$_SESSION['user']->red.','.$_SESSION['user']->green.','.$_SESSION['user']->blue.',0.8)';
+	$_SESSION['light_color'] = 'rgba('.$_SESSION['user']->red.','.$_SESSION['user']->green.','.$_SESSION['user']->blue.',0.4)';
 	$_SESSION['url_cover'] = 'url(\'../img/profil/'.$_SESSION['user']->coverPath.'\')';
 	if ($_SESSION['user']->text == 0) $_SESSION['text'] = '#FFF';
 	else $_SESSION['text'] = '#000';
