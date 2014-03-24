@@ -37,7 +37,7 @@ class User {
 	
 	function getUser($id) {
 		$queryData  = 'SELECT * FROM User u WHERE u.idUser='.$id;
-		$result = mysql_query($queryData) or die('Query Data failed (userpage.php): ' . mysql_error());
+		$result = mysql_query($queryData) or die('Query Data failed (user.php): ' . mysql_error());
 		$row = mysql_fetch_array($result);
 		$this->idUser =$row['idUser'];
 		$this->username =$row['username'];

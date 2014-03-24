@@ -11,9 +11,9 @@
     session_start();
 	
     if(!isset($_SESSION['idUser'])) {
-		header('Location: ../index.php');
+	header('Location: ../index.php');
     } else if(isset($_POST['idUser'])){
-		$_SESSION['idUser'] = $_POST['idUser'];
+	$_SESSION['idUser'] = $_POST['idUser'];
     }
     $user = new User();
     $user->getUser($_SESSION['idUser']);

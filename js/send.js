@@ -1,3 +1,14 @@
+function getXhr(){
+	var xhr = null;
+	if(window.XMLHttpRequest){
+	    xhr = new XMLHttpRequest();
+	}else if(window.ActiveXObject){
+	    xhr = new ActiveXObject("Msxml2.XMLHTTP");
+	}
+    return xhr;
+} 
+
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -40,8 +51,65 @@ function change(number) {
     if (number==0) {
         document.getElementById("text_text").disabled = !document.getElementById("title_text").disabled;
         document.getElementById("title_text").disabled = !document.getElementById("title_text").disabled;
+        document.getElementById("img_finder").disabled = !document.getElementById("img_finder").disabled;
+        document.getElementById("submit").disabled = !document.getElementById("submit").disabled;
     } else if (number==1) {
+        document.getElementById("text_text").disabled = !document.getElementById("title_text").disabled;
+        document.getElementById("title_text").disabled = !document.getElementById("title_text").disabled;
         document.getElementById("img_finder").disabled = !document.getElementById("img_finder").disabled;
         document.getElementById("submit").disabled = !document.getElementById("submit").disabled;
     }  
 }
+
+function send() {
+    var numberReceiver = document.getElementById("div_send_list").childNodes.length;
+    var checkText = document.getElementById("checkbox_text");
+    var checkImg = document.getElementById("checkbox_text");
+    var textTitle = document.getElementById("title_text");
+    var textBody = document.getElementById("text_text");
+    var imgPreview = document.getElementById("img_preview");
+    var feedback = document.getElementById("feedback");
+    
+    if (numberReceiver != 0 && (checkText.checked || checkImg.checked)) {
+        if (checkText.checked && (textTitle.value != "" || textBody.value != "")) {
+            sendMessageAll(textTitle.value+" "+textBody.value,0);
+        } else if (numberReceiver != 0 && imgPreview.childNodes.length !=0) {
+            sendMessageAll("imageName",1);
+        } else{
+            feedback.innerHTML="Please fill your message.";
+        }
+    } else {
+        feedback.innerHTML="Please add receiver and choose text or image.";
+    }
+}
+
+function sendMessageAll(text,isImage) {
+    var nodes = document.getElementById("div_send_list").childNodes;
+    var numberReceiver = document.getElementById("div_send_list").childNodes.length;
+    var time = document.getElementById("time").value;
+    for(i=0;i<numberReceiver;i++){
+        var idReceiver = nodes[i].id.substring(10,nodes[i].id.length);
+        var name = nodes[i].firstChild.nodeValue;
+        sendMessage(idReceiver,text,isImage,time,name)
+    }
+}
+
+function sendMessage(idReceiver,text,isImage,time,name) {
+    var feedback = document.getElementById("feedback");
+    feedback.innerHTML ="";
+    var xhr = getXhr();	
+    xhr.onreadystatechange = function(){
+        if((xhr.readyState == 4) && (xhr.status == 200)){
+            tmp = xhr.responseText;
+            var para = document.createElement("div");
+            var node = document.createTextNode("Message Send To "+name);
+            para.appendChild(node);
+            feedback.appendChild(para);
+        }	
+    }	
+    xhr.open("post","./send/sending.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
+    xhr.send("idReceiver="+idReceiver+"&text="+text+"&isImage="+isImage+"&time="+time);
+}
+
+

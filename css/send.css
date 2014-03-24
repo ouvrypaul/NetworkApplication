@@ -91,7 +91,7 @@
 
 #img_preview {
 	width: 90%;
-	height: 200px;
+	height: 170px;
 	border-radius: 5px;
 	margin-top: 5px;
 	border: 1px solid #FFF;
@@ -120,6 +120,7 @@
 }
 
 #feedback {
+overflow-y: scroll;
 width: 100%;
 border: 1px solid #FFF;
 height: 83px;

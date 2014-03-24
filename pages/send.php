@@ -27,24 +27,24 @@
                 echo '<td id="td_send_list">';
 		    echo 'Send List:';
                     echo '<div id="div_send_list" ondrop="drop(event)" ondragover="allowDrop(event)">';
-				    if(isset($_POST['send']) && $_POST['send'] >= 0) {
-					$query2="SELECT u.username FROM User u WHERE u.idUser=".$_POST['send'];
-					$result2 = mysql_query($query2) or die('Query Data failed (send.php): ' . mysql_error());
-					while($line = mysql_fetch_row($result2)){
-					    echo '<div id="drag_elem_'.$line[1].'" class="friend_mess" draggable="true" ondragstart="drag(event)">'.$line[0].'</div>';   
-					}
-				    }
+			if(isset($_POST['send']) && $_POST['send'] >= 0) {
+			    $query2="SELECT u.username FROM User u WHERE u.idUser=".$_POST['send'];
+			    $result2 = mysql_query($query2) or die('Query Data failed (send.php): ' . mysql_error());
+			    while($line = mysql_fetch_row($result2)){
+				echo '<div id="drag_elem_'.$line[1].'" class="friend_mess" draggable="true" ondragstart="drag(event)">'.$line[0].'</div>';   
+			    }
+			}
                     echo '</div>';
                     echo '<input onclick="removeAll()" class="button button_send" type="button" value="Remove All"/>';
                 echo '</td>';
                 echo '<td id="td_message">';
 		    echo 'Text: ';
-		    echo '<input type="checkbox" id="checkbox_text" onchange="change(0)"/>';
+		    echo '<input type="radio" id="checkbox_text"  name="check" onchange="change(0)"/>';
 		    echo '<input type="text" id="title_text" disabled /><br/>';
 	    	echo '<textarea rows="10" cols="90" id="text_text"></textarea><br/>';
 		    echo '<table><tr><td>';
 		    echo 'Photo: ';
-		    echo '<input type="checkbox" id="checkbox_img" name="check" onchange="change(1)"/>';
+		    echo '<input type="radio" id="checkbox_img" name="check" onchange="change(1)"/>';
 		    echo '<form method="post"  action="./send/upload.php" enctype="multipart/form-data">';
 		    echo '<input class="button" id="img_finder" type="file" name="pic"/>';
 		    echo '<input class="button" id="submit" type="submit" value="Submit"/><br/>';
@@ -57,7 +57,7 @@
 		    	echo "<option>".$i."</option>";
 		    }
 		    echo "</select>";
-		    echo '<input id="button_send" class="button" type="button" value="Send"/>';
+		    echo '<input id="button_send" class="button" type="button" value="Send" onclick="send('.$_SESSION['idUser'].')"/>';
 		    echo 'Feedback: ';
 		    echo '<div id="feedback"></div>';
 		    echo '</td></tr></table>';

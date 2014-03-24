@@ -22,12 +22,12 @@
         echo "Email already used.";
     } else {
         if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])) {
-			$query = "UPDATE User SET username='".$_POST['username']."', email='".$_POST['email']."', password='".md5($_POST['password'])."' WHERE idUser=".$_SESSION['user']->idUser;
-			$result = mysql_query($query) or die('Query update general settings failed: ' . mysql_error());
-			echo "Settings changed.";
-			$user = new User();
-			$user->getUser($_SESSION['idUser']);
-			$_SESSION['user'] = $user;
+	    $query = "UPDATE User SET username='".$_POST['username']."', email='".$_POST['email']."', password='".md5($_POST['password'])."' WHERE idUser=".$_SESSION['user']->idUser;
+	    $result = mysql_query($query) or die('Query update general settings failed: ' . mysql_error());
+	    echo "Settings changed.";
+	    $user = new User();
+	    $user->getUser($_SESSION['idUser']);
+	    $_SESSION['user'] = $user;
         }
     }
     
