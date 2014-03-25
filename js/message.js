@@ -1,9 +1,9 @@
-var delay = 8000;
-var sec=delay/1000;
 var i;
+var sec;
 	
-function unlock() {
-	
+function unlock(idMessage,idTime) {
+	var delay = idTime*1000;
+	sec = idTime;
 	var header = document.getElementById('head_envelope');
 	var countdown = document.getElementById('countdown');
 	var lock = document.getElementById('lock_envelope');
@@ -36,6 +36,7 @@ function unlock() {
 		header.style.top="-50%";
 		footer.style.bottom="-50%";	
 		h2.style.marginTop="50px";
+		displayImage(idMessage);
 	},3000);
 				
 	//when animation finished then wait and close
@@ -51,14 +52,14 @@ function unlock() {
 				setTimeout("destroyMessage()",2000);
 			},delay);
 			}
-		)				
+		)
 	}
 
 }
 
 //countdown functions
 function decrease(){
-	sec--
+	sec--;
 	if(sec>=0){
 		countdown.innerHTML=sec;
 		if(sec<=3){
@@ -90,7 +91,7 @@ function state(){
 	}
 }
 
-function destroyMessage() {
+function destroyMessage(idMessage) {
 	var d=0;
 	var header = document.getElementById('head_envelope');
 	var lock = document.getElementById('lock_envelope');
@@ -103,5 +104,72 @@ function destroyMessage() {
 	footer.style.height="0px";
 	d=1;
 	state();
+	destroyMessageData(idMessage);
+	nav(0,-1);
+}
+
+	
+function reject(idFriend) {
+    var xhr = getXhr();	
+    xhr.onreadystatechange = function(){
+        if((xhr.readyState == 4) && (xhr.status == 200)){
+            tmp = xhr.responseText;
+	    nav(0,1);
+        }	
+    }	
+    xhr.open("post","./news/reject.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
+    xhr.send("idFriend="+idFriend);
+}
+
+function addFriendNew(idFriend) {
+	addFriendNew(idFriend);
+	nav(0,1);
+}
+
+
+function notNew(idFriend) {
+    var xhr = getXhr();	
+    xhr.onreadystatechange = function(){
+        if((xhr.readyState == 4) && (xhr.status == 200)){
+            tmp = xhr.responseText;
+	    nav(0,1);
+        }	
+    }	
+    xhr.open("post","./news/notNew.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
+    xhr.send("idFriend="+idFriend);
 }
 	
+	
+function goMessage(idPage,idFriend) {
+	notNew(idFriend);
+	nav(idPage,idFriend);	
+}
+
+function displayImage(idMessage) {
+    var img = document.getElementById("message");
+    var xhr = getXhr();	
+    xhr.onreadystatechange = function(){
+        if((xhr.readyState == 4) && (xhr.status == 200)){
+            tmp = xhr.responseText;
+	    img.innerHTML = tmp;
+        }	
+    }	
+    xhr.open("post","./news/getPicture.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
+    xhr.send("idMessage="+idMessage);
+}
+
+function destroyMessageData(idMessage) {
+    var xhr = getXhr();	
+    xhr.onreadystatechange = function(){
+        if((xhr.readyState == 4) && (xhr.status == 200)){
+            tmp = xhr.responseText;
+        }	
+    }	
+    xhr.open("post","./news/destroyMessage.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset ISO");
+    xhr.send("idMessage="+idMessage);
+}
+

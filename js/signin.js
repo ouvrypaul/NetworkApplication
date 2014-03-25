@@ -51,17 +51,17 @@ function addSignUp(){
     var form = document.getElementById("signup_form");
     
     if (!isValid(username,letters)){
-            error.innerHTML = "You username must only contains letters.";
-            setTimeout("revertErrorSignup()",5000);
+        error.innerHTML = "You username must only contains letters.";
+        setTimeout("revertErrorSignup()",5000);
     } else if (username.length>10 ||username.length<5) {
-            error.innerHTML = "You username must contains between 5 and 10 characters.";
-            setTimeout("revertErrorSignup()",5000);
+        error.innerHTML = "You username must contains between 5 and 10 characters.";
+        setTimeout("revertErrorSignup()",5000);
     } else if (!contains(email,at) || !contains(email,dot)) {
-        	error.innerHTML = "Please enter a correct email.";
-        	setTimeout("revertErrorSignup()",5000);
-    } else if (password != password2 || password.length>5) {
-            error.innerHTML = "Your two password are not the same or have not enough letters.";
-            setTimeout("revertErrorSignup()",5000);
+        error.innerHTML = "Please enter a correct email.";
+        setTimeout("revertErrorSignup()",5000);
+    } else if (password != password2 || password.length<5) {
+        error.innerHTML = "Your two password are not the same or have not enough letters.";
+        setTimeout("revertErrorSignup()",5000);
     } else {
             var xhr = getXhr();	
             xhr.onreadystatechange = function(){

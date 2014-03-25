@@ -1,5 +1,14 @@
 #countdown {
-	width: 150px;
+	width: 160px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+	text-align: center;
+	cursor:default;
+}
+
+#countdown2 {
+	width: 160px;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 5px;
@@ -38,14 +47,13 @@
 }
 
 #letter, #envelope {
-	width: 500px;
+	width: 300px;
 	height: 200px;
 }
 
 #image {
 	max-width: 300px;
 	max-height: 180px;
-	width: 50px;
 }
 
 #message {

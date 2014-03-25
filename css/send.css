@@ -81,17 +81,9 @@
         border-radius: 5px;
 }
 
-#text_text {
-    margin-bottom: 20px;
-    margin-top: 5px;
-    width: 100%;
-    resize:none;
-    border-radius: 5px;
-}
-
 #img_preview {
     width: 90%;
-    height: 170px;
+    height: 300px;
     border-radius: 5px;
     margin-top: 5px;
     border: 1px solid #FFF;
@@ -121,6 +113,13 @@
     overflow-y: scroll;
     width: 100%;
     border: 1px solid #FFF;
-    height: 83px;
+    height: 220px;
+    border-radius: 5px;
+}
+
+
+#preview_img{
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
 }

@@ -21,6 +21,7 @@ if ($_FILES['pic']['error']) {
 else {     
 	move_uploaded_file($_FILES['pic']["tmp_name"],
 	"../../img/profil/".$_SESSION['user']->username."/". $_FILES['pic']["name"]);
+	$_SESSION['upload'] = "../img/profil/".$_SESSION['user']->username."/". $_FILES['pic']["name"];
 	header('Location: ../../index.php');
 }     
 ?> 

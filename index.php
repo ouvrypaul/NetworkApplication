@@ -16,9 +16,9 @@
 	    session_start();
 		   
 	    if(isset($_SESSION['idUser'])) {
-			echo "<script language=\"javascript\">";
-			echo "window.location='./pages/userpage.php';";
-			echo "</script>"; 
+		echo "<script language=\"javascript\">";
+		echo "window.location='./pages/userpage.php';";
+		echo "</script>"; 
 	    } else if(isset($_POST['login']) && isset($_POST['password'])) {
 	        $query = 'SELECT idUser,username,password FROM User';
 	        $login = $_POST['login'];
@@ -57,7 +57,7 @@
 	   <div id="login_div">
 	      <form action="index.php" class="group" method="post">
 		  <p>
-  	      <input name="login" type="text" class="text" placeholder="Username" required autofocus /><br/>
+  	          <input name="login" type="text" class="text" placeholder="Username" required autofocus /><br/>
 		  <input name="password" type="password" class="text" placeholder="Password" required /><br/>
 		  <button class="button" type="submit">Go !</button>
 		  <button class="button" type="button" onclick="signupSlides('1');" >Sign up</button>

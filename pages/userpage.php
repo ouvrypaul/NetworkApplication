@@ -1,9 +1,12 @@
 <?php
+
+
     if(isset($_POST['disconnect'])){
-	header('Location: ../index.php');
 	session_start();
         unset($_SESSION['idUser']);
+	unset($_SESSION['user']);
         session_destroy();
+	header('Location: ../index.php');
     }
 
     include('../database/database_login.php');
@@ -12,10 +15,9 @@
 	
     if(!isset($_SESSION['idUser'])) {
 	header('Location: ../index.php');
-    } else if(isset($_POST['idUser'])){
-	$_SESSION['idUser'] = $_POST['idUser'];
     }
     $user = new User();
+    $_SESSION['idUser']=2;
     $user->getUser($_SESSION['idUser']);
     $_SESSION['user'] = $user;	
 
@@ -74,17 +76,22 @@
 				<li><i class="fa fa-cog" onclick="nav(4,-1)"></i></li>
 				<li><i class="fa fa-power-off" onclick="disconnect()"></i></li>
 			</ul>
-						</div>
+		    </div>
 		</nav>
 		
 		<div id="div_transition">
 		    <section class="widget container" id="section">
-			    <?php include("./news.php");?>
+			    <?php //include("./news.php");?>
 		    </section>
 		</div>
 			 <p>
      <a href="http://validator.w3.org/check?uri=referer"> <img
        src="../img/htm5.png" alt="HTML5" height="32" width="40" /> </a>
    </p>
+	<?php if(isset($_SESSION['upload'])) {
+		echo '<script>nav(3,-1);</script>';
+	} else {
+	    echo '<script>nav(0,-1);</script>';
+	}?>
 	</body>
  </html>

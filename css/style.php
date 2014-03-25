@@ -285,3 +285,10 @@ li{
   color: <?php echo $text; ?>;
     background-color: <?php echo $color; ?>;
 }
+
+#message_text{
+    color: <?php echo $text; ?>;
+    background-color: <?php echo $lightColor; ?>;
+    border-radius:5px;
+     box-shadow:0px 0px 4px 0px white;
+}
