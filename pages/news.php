@@ -49,7 +49,7 @@
              }
              
             $j=0;    
-            $query3 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['idUser'].' AND u.idUser=m.idSender AND m.isImage=0'; 
+            $query3 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['idUser'].' AND u.idUser=m.idSender AND m.isImage=0 AND m.seen=1'; 
             $result = mysql_query($query3) or die('Query failed (news.php): ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
                 if($j<1) {
@@ -72,7 +72,7 @@
             }
             
             $j=0;
-            $query4 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['idUser'].' AND u.idUser=m.idSender AND m.isImage=1'; 
+            $query4 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['idUser'].' AND u.idUser=m.idSender AND m.isImage=1 AND m.seen=1'; 
             $result = mysql_query($query4) or die('Query failed (news.php): ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
                 if($j<1) {

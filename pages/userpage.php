@@ -1,12 +1,10 @@
 <?php
-
-
     if(isset($_POST['disconnect'])){
-	session_start();
+	    session_start();
         unset($_SESSION['idUser']);
-	unset($_SESSION['user']);
+		unset($_SESSION['user']);
         session_destroy();
-	header('Location: ../index.php');
+		//header('Location: ../index.php');
     }
 
     include('../database/database_login.php');
@@ -17,7 +15,6 @@
 	header('Location: ../index.php');
     }
     $user = new User();
-    $_SESSION['idUser']=2;
     $user->getUser($_SESSION['idUser']);
     $_SESSION['user'] = $user;	
 
@@ -63,7 +60,7 @@
 
 		
 		<form id="disconnect_form" method="post" action="./userpage.php">
-		    <p><input type="hidden" name="disconnect"/></p>
+		    <p><input type="hidden" name="disconnect" value="disconnect"/></p>
 		</form>
 		
 		<nav>
