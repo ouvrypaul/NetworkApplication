@@ -1,6 +1,6 @@
 <?php
     include('../../database/database_login.php');
-    include('../database/user.php');
+    include('../../database/user.php');
     session_start();
     
     if(isset($_SESSION['user']) && isset($_POST['text'])){ 
