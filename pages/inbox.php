@@ -19,7 +19,7 @@ function display ($date) {
 echo'<div class="heading"><h4> INBOX </h4></div>';
 echo'<table class="border-top">';
 
-$query= 'SELECT u.idUser,u.username, f.date FROM Friend f, User u WHERE f.idUser ='.$_SESSION['user']->idUser.' AND f.accepted=1 AND f.new=1 AND f.idFriend = u.idUser ORDER BY f.date DESC'; 
+$query= 'SELECT f.idUser, f.idFriend FROM Friend f, User u WHERE (f.idUser ='.$_SESSION['user']->idUser.' OR f.idFriend='.$_SESSION['user']->idUser.') AND f.accepted=1 AND f.new=1 AND f.idFriend = u.idUser ORDER BY f.date DESC'; 
 $result = mysql_query($query) or die('Query Data failed inbox 1: ' . mysql_error());
 
 //get the new friendships
@@ -28,12 +28,16 @@ while($line = mysql_fetch_row($result)){
 			echo'<td><b>';
 			display($line[2]);
 			echo'</b></td>';  
-			echo'<td><b>'.$_SESSION['user']->username.' + '.$line[1].' = &lt;3 now ! </b></td>';
+			$user = new User();
+			$user->getUser($line[0]);
+			$user2 = new User();
+			$user2->getUser($line[1]);
+			echo'<td><b>'.$user->username.' + '.$user2->username.' = &lt;3 now ! </b></td>';
 			echo'<td><input class="button" type="button" name="ok" value="OK" onclick="notNew('.$line[0].')"/><input type="button" class="button" name="nom" value="Send a message" onclick="nav(3,'.$line[0].')"></td>';
 			echo'</tr>';
 }
 
-$query1 = 'SELECT u.idUser,u.username,u.imagePath, f.date FROM Friend f, User u WHERE f.idFriend ='.$_SESSION['idUser'].' AND f.accepted=0 AND f.rejected=0 AND f.idUser = u.idUser ORDER BY f.date DESC'; 
+$query1 = 'SELECT u.idUser,u.username,u.imagePath, f.date FROM Friend f, User u WHERE f.idFriend ='.$_SESSION['user']->idUser.' AND f.accepted=0 AND f.rejected=0 AND f.idUser = u.idUser ORDER BY f.date DESC'; 
 $result = mysql_query($query1) or die('Query Data failed inbox 2: ' . mysql_error());
 while($line = mysql_fetch_row($result)){  
 			echo'<tr class="row">';
@@ -49,7 +53,7 @@ while($line = mysql_fetch_row($result)){
 } 
 
 //get the last 10 messages from the user
-$query= 'SELECT idSender, seen, time, idMessage, date FROM Message WHERE idReceiver='.$_SESSION['user']->idUser.' ORDER BY date DESC LIMIT 7';
+$query= 'SELECT idSender, idMessage, date FROM Message WHERE idReceiver='.$_SESSION['user']->idUser.' ORDER BY date DESC LIMIT 7';
 $result = mysql_query($query) or die('Query Data failed inbox 3: ' . mysql_error());
 
 //generate 10 lines
@@ -57,30 +61,14 @@ while($line = mysql_fetch_row($result)){
       	//find username corresponding to the sender's id
          $sender = new User();
          $sender->getUser($line[0]);
-        //bold style if the message has NOT been seen, else no style
-        if($line[1] == 1){ 
-        	$bold='<b>';
-        	$dolb='</b>';
-        }
-        else{
-        	$bold=' ';
-        	$dolb=' ';
-        }
-		
+
 		//start of a line
-        echo'<tr class="row">';
-        //No attribute for time when the message is recieved??!
-       echo'<td>'.$bold;
-       display($line[4]);
-       echo $dolb.'</td>'; 
-		echo'<td>'.$bold.'Message from '.$sender->username.' '.$dolb.'</td>';
-		if($line[1] == 1){ 
-			echo'<td><input type="button" class="button" name="nom" value="Destroy" onclick="destroyMes('.$line[3].')"></td>';
-		}
-		else{
-			//display time not sure if it's already seconds
-			echo'<td>'.$bold.$line[2].' sec'.$dolb.'</td>';
-		}
+       echo'<tr class="row">';
+       echo'<td><b>';
+       display($line[2]);
+       echo '</b></td>'; 
+	   echo'<td><b> Message from '.$sender->username.'</b></td>';
+	   echo'<td><input type="button" class="button" name="nom" value="Destroy" onclick="destroyMes('.$line[1].')"></td>';
 //end of line
  echo'</tr>';
 }

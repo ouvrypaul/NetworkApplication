@@ -1,9 +1,10 @@
 <?php
     include('../../database/database_login.php');
+    include('../database/user.php');
     session_start();
     
-    if(isset($_SESSION['idUser'])){
-        $queryFriends = 'SELECT u.idUser,u.username,u.imagePath,f.accepted FROM Friend f,User u WHERE f.idFriend='.$_SESSION['idUser'].' AND f.idUser=u.idUser AND f.accepted=0 ORDER BY u.username';
+    if(isset($_SESSION['user'])){
+        $queryFriends = 'SELECT u.idUser,u.username,u.imagePath,f.accepted FROM Friend f,User u WHERE f.idFriend='.$_SESSION['user']->idUser.' AND f.idUser=u.idUser AND f.accepted=0 ORDER BY u.username';
         $result = mysql_query($queryFriends) or die('Query Friends failed (friends_load.php): ' . mysql_error());
         echo '<table>';
         while ($line = mysql_fetch_row($result)) {

@@ -4,7 +4,6 @@
         unset($_SESSION['idUser']);
 		unset($_SESSION['user']);
         session_destroy();
-		//header('Location: ../index.php');
     }
 
     include('../database/database_login.php');

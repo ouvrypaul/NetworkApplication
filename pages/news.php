@@ -4,7 +4,7 @@
     include('../database/user.php');
     session_start();
 
-     if(isset($_SESSION['idUser']) && isset($_SESSION['user'])) {
+     if(isset($_SESSION['user'])) {
             echo'<div class="heading"><h4> NEWS </h4></div>';       
             echo'<table class="border-top">';
             echo'<tr>';
@@ -16,7 +16,7 @@
             echo'<table id="slides"><tr>';
             $i=0;
             $j=0;
-            $query1 = 'SELECT u.idUser,u.username,u.imagePath FROM Friend f, User u WHERE f.idFriend ='.$_SESSION['idUser'].' AND f.accepted=0 AND f.rejected=0 AND f.idUser = u.idUser'; 
+            $query1 = 'SELECT u.idUser,u.username,u.imagePath FROM Friend f, User u WHERE f.idFriend ='.$_SESSION['user']->idUser.' AND f.accepted=0 AND f.rejected=0 AND f.idUser = u.idUser'; 
             $result = mysql_query($query1) or die('Query failed (news.php): ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
                     if($j<2) {
@@ -32,12 +32,16 @@
             }
             
             $j=0;
-            $query2 = 'SELECT u.idUser,u.username FROM Friend f, User u WHERE f.idUser ='.$_SESSION['idUser'].' AND f.accepted=1 AND f.new=1 AND f.idFriend = u.idUser'; 
-            $result = mysql_query($query2) or die('Query failed (news.php): ' . mysql_error());
+            $query2 = 'SELECT f.idUser, f.idFriend FROM Friend f, User u WHERE (f.idUser ='.$_SESSION['user']->idUser.' OR f.idFriend='.$_SESSION['user']->idUser.') AND f.accepted=1 AND f.new=1 AND f.idFriend = u.idUser'; 
+            $result = mysql_query($query2) or die('Query failed(news.php): ' . mysql_error());
               while ($line = mysql_fetch_row($result)) {
                 if($j<2) {
+					$user = new User();
+					$user->getUser($line[0]);
+					$user2 = new User();
+					$user2->getUser($line[1]);
                     echo'<td class="slide">';
-                    echo'<h3>'.$_SESSION['user']->username.' + '.$line[1].' = &lt;3 now !</h3>';
+                    echo'<h3>'.$user->username.' + '.$user2->username.' = &lt;3 now !</h3>';
                     echo'<img src="../img/heart.png" alt="heart"/><br/>';
                     echo'<input class="button" type="button" name="ok" value="OK" onclick="notNew('.$line[0].')"/>';
                     echo'<input class="button" type="button" name="message" value="Send a message" onclick="goMessage(3,'.$line[0].')"/>';
@@ -49,7 +53,7 @@
              }
              
             $j=0;    
-            $query3 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['idUser'].' AND u.idUser=m.idSender AND m.isImage=0 AND m.seen=1'; 
+            $query3 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['user']->idUser.' AND u.idUser=m.idSender AND m.isImage=0'; 
             $result = mysql_query($query3) or die('Query failed (news.php): ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
                 if($j<1) {
@@ -72,7 +76,7 @@
             }
             
             $j=0;
-            $query4 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['idUser'].' AND u.idUser=m.idSender AND m.isImage=1 AND m.seen=1'; 
+            $query4 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['user']->idUser.' AND u.idUser=m.idSender AND m.isImage=1'; 
             $result = mysql_query($query4) or die('Query failed (news.php): ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
                 if($j<1) {

@@ -1,16 +1,17 @@
 <?php
     include('../../database/database_login.php');
+    include('../database/user.php');
     session_start();
     
-    if(isset($_SESSION['idUser']) && isset($_POST['text'])){ 
+    if(isset($_SESSION['user']) && isset($_POST['text'])){ 
         $queryFriends ='SELECT idUser,username,imagePath FROM User WHERE idUser NOT IN (
-           SELECT idFriend FROM Friend WHERE idUser='.$_SESSION['idUser'].' AND accepted=1
-        ) AND idUser<>'.$_SESSION['idUser'].' AND username LIKE "%'.$_POST['text'].'%" ORDER BY username';
+           SELECT idFriend FROM Friend WHERE idUser='.$_SESSION['user']->idUser.' AND accepted=1
+        ) AND idUser<>'.$_SESSION['user']->idUser.' AND username LIKE "%'.$_POST['text'].'%" ORDER BY username';
         
         $result = mysql_query($queryFriends) or die('Query Friends failed (friend_search.php): ' . mysql_error());
         $string="";
         while ($line = mysql_fetch_row($result)) {
-            $queryRequest ='SELECT f.accepted FROM Friend f WHERE f.idUser='.$_SESSION['idUser'].' AND f.idFriend='.$line[0];
+            $queryRequest ='SELECT f.accepted FROM Friend f WHERE f.idUser='.$_SESSION['user']->idUser.' AND f.idFriend='.$line[0];
             $result2 = mysql_query($queryRequest) or die('Query Test Friends failed (friend_search.php): ' . mysql_error());
             $test = 1;
             while ($line2 = mysql_fetch_row($result2)) {
