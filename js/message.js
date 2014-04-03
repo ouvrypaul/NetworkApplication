@@ -122,18 +122,11 @@ function reject(idFriend) {
     xhr.send("idFriend="+idFriend);
 }
 
-function addFriendNew(idFriend) {
-	addFriendNew(idFriend);
-	nav(0,1);
-}
-
-
 function notNew(idFriend) {
     var xhr = getXhr();	
     xhr.onreadystatechange = function(){
         if((xhr.readyState == 4) && (xhr.status == 200)){
             tmp = xhr.responseText;
-	    nav(0,1);
         }	
     }	
     xhr.open("post","./news/notNew.php",true);
@@ -141,6 +134,16 @@ function notNew(idFriend) {
     xhr.send("idFriend="+idFriend);
 }
 	
+
+function addFriendNew(idFriend) {
+	addFriend(idFriend);
+	nav(0,1);
+}
+
+function becomeNotNew(idFriend) {
+	notNew(idFriend);
+	nav(0,1);
+}
 	
 function goMessage(idPage,idFriend) {
 	notNew(idFriend);

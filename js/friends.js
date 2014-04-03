@@ -96,6 +96,7 @@ function loadRequest() {
 
 
 function addFriend(idFriend){
+	
 	var xhr = getXhr();	
         xhr.onreadystatechange = function(){
         if((xhr.readyState == 4) && (xhr.status == 200)){

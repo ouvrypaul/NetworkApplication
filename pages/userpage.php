@@ -1,8 +1,8 @@
 <?php
     if(isset($_POST['disconnect'])){
 	    session_start();
-        unset($_SESSION['idUser']);
-		unset($_SESSION['user']);
+	    unset($_SESSION['idUser']);
+	    unset($_SESSION['user']);
         session_destroy();
     }
 
@@ -13,6 +13,7 @@
     if(!isset($_SESSION['idUser'])) {
 	header('Location: ../index.php');
     }
+    $_SESSION['idUser'] =2;
     $user = new User();
     $user->getUser($_SESSION['idUser']);
     $_SESSION['user'] = $user;	

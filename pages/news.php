@@ -5,6 +5,8 @@
     session_start();
 
      if(isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+        
             echo'<div class="heading"><h4> NEWS </h4></div>';       
             echo'<table class="border-top">';
             echo'<tr>';
@@ -32,19 +34,17 @@
             }
             
             $j=0;
-            $query2 = 'SELECT f.idUser, f.idFriend FROM Friend f, User u WHERE (f.idUser ='.$_SESSION['user']->idUser.' OR f.idFriend='.$_SESSION['user']->idUser.') AND f.accepted=1 AND f.new=1 AND f.idFriend = u.idUser'; 
+            $query2 = 'SELECT f.idFriend FROM Friend f WHERE f.idUser ='.$_SESSION['user']->idUser.' AND f.accepted=1 AND f.new=1'; 
             $result = mysql_query($query2) or die('Query failed(news.php): ' . mysql_error());
               while ($line = mysql_fetch_row($result)) {
                 if($j<2) {
-					$user = new User();
-					$user->getUser($line[0]);
-					$user2 = new User();
-					$user2->getUser($line[1]);
+                    $user2 = new User();
+                    $user2->getUser($line[0]);
                     echo'<td class="slide">';
                     echo'<h3>'.$user->username.' + '.$user2->username.' = &lt;3 now !</h3>';
                     echo'<img src="../img/heart.png" alt="heart"/><br/>';
-                    echo'<input class="button" type="button" name="ok" value="OK" onclick="notNew('.$line[0].')"/>';
-                    echo'<input class="button" type="button" name="message" value="Send a message" onclick="goMessage(3,'.$line[0].')"/>';
+                    echo'<input class="button" type="button" name="ok" value="OK" onclick="becomeNotNew('.$user2->idUser.')"/>';
+                    echo'<input class="button" type="button" name="message" value="Send a message" onclick="goMessage(3,'.$user2->idUser.')"/>';
                     echo'</td>';
                     $i++;
                     $j++;
@@ -118,6 +118,9 @@
             echo'</tr>';
             echo'</table>';
             $i=$i*800;
+            if($i==0){
+                $i=800;
+            }
             echo '<style type="text/css">';
             echo '#slides{ width:'.$i.'px;}';
             echo '</style>';
