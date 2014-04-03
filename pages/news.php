@@ -111,7 +111,9 @@
             echo'</div>';
             echo'</td>';
             echo'<td  id="right_arrow" class="control">';
-            echo'<div><i id="next" class="fa fa-chevron-right fa-3x" onclick="next('.$i.')"></i></div>';
+            if($i>1){
+                echo'<div><i id="next" class="fa fa-chevron-right fa-3x" onclick="next('.$i.')"></i></div>';
+            }
             echo'</td>';    
             echo'</tr>';
             echo'</table>';
