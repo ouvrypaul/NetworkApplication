@@ -4,10 +4,15 @@
     session_start();
     
     if(isset($_SESSION['user']) && isset($_POST['idReceiver']) && isset($_POST['text']) && isset($_POST['isImage']) && isset($_POST['time'])){
-        if ($_POST['isImage'] == "1") {
-            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$_POST['idReceiver'].',"'.$_SESSION['upload'].'",1,'.$_POST['time'].',1, NOW())';
+    	$idR = mysql_real_escape_string($_POST['idReceiver']);
+    	$txt = mysql_real_escape_string($_POST['text']);
+    	$isI = mysql_real_escape_string($_POST['isImage']);
+    	$time = mysql_real_escape_string($_POST['time']);
+    	
+        if ($isI == "1") {
+            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$idR.',"'.$_SESSION['upload'].'",1,'.$time.',1, NOW())';
         } else{
-            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$_POST['idReceiver'].',"'.$_POST['text'].'",0,'.$_POST['time'].',1, NOW())';
+            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$idR.',"'.$txt.'",0,'.$time.',1, NOW())';
         }
         $result = mysql_query($queryMessage) or die('Query Message (sending.php): ' . mysql_error());
     }
