@@ -13,7 +13,6 @@
     if(!isset($_SESSION['idUser'])) {
 	header('Location: ../index.php');
     }
-    $_SESSION['idUser'] =2;
     $user = new User();
     $user->getUser($_SESSION['idUser']);
     $_SESSION['user'] = $user;	

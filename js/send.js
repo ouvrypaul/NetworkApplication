@@ -104,10 +104,17 @@ function sendMessage(idReceiver,text,isImage,time,name) {
     xhr.onreadystatechange = function(){
         if((xhr.readyState == 4) && (xhr.status == 200)){
             tmp = xhr.responseText;
-            var para = document.createElement("div");
-            var node = document.createTextNode("Message sent to "+name+".");
-            para.appendChild(node);
-            feedback.appendChild(para);
+            if (tmp.length > 10) {
+                var para = document.createElement("div");
+                var node = document.createTextNode("Error sending to "+name+".");
+                para.appendChild(node);
+                feedback.appendChild(para);
+            } else {
+                var para = document.createElement("div");
+                var node = document.createTextNode("Message sent to "+name+".");
+                para.appendChild(node);
+                feedback.appendChild(para);
+            }
         }	
     }	
     xhr.open("post","./send/sending.php",true);

@@ -10,9 +10,9 @@
     	$time = mysql_real_escape_string($_POST['time']);
     	
         if ($isI == "1") {
-            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$idR.',"'.$_SESSION['upload'].'",1,'.$time.',1, NOW())';
+            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$idR.',"'.$_SESSION['upload'].'",'.$time.',1, NOW())';
         } else{
-            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$idR.',"'.$txt.'",0,'.$time.',1, NOW())';
+            $queryMessage ='INSERT INTO Message VALUES (null,'.$_SESSION['user']->idUser.','.$idR.',"'.$txt.'",0,'.$time.', NOW())';
         }
         $result = mysql_query($queryMessage) or die('Query Message (sending.php): ' . mysql_error());
     }
