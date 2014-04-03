@@ -4,9 +4,11 @@
     session_start();
     
     if(isset($_SESSION['user']) && isset($_POST['text'])){ 
+    	$text = mysql_real_escape_string($_POST['text']);
+    	
         $queryFriends ='SELECT idUser,username,imagePath FROM User WHERE idUser NOT IN (
            SELECT idFriend FROM Friend WHERE idUser='.$_SESSION['user']->idUser.' AND accepted=1
-        ) AND idUser<>'.$_SESSION['user']->idUser.' AND username LIKE "%'.$_POST['text'].'%" ORDER BY username';
+        ) AND idUser<>'.$_SESSION['user']->idUser.' AND username LIKE "%'.$text.'%" ORDER BY username';
         
         $result = mysql_query($queryFriends) or die('Query Friends failed (friend_search.php): ' . mysql_error());
         $string="";
