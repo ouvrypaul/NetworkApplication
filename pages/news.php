@@ -34,12 +34,14 @@
             }
             
             $j=0;
-            $query2 = 'SELECT f.idFriend FROM Friend f WHERE f.idUser ='.$_SESSION['user']->idUser.' AND f.accepted=1 AND f.new=1'; 
+            $query2 = 'SELECT f.idUser, f.idFriend FROM Friend f, User u WHERE (f.idUser ='.$_SESSION['user']->idUser.' OR f.idFriend='.$_SESSION['user']->idUser.') AND f.accepted=1 AND f.new=1 AND f.idFriend = u.idUser'; 
             $result = mysql_query($query2) or die('Query failed(news.php): ' . mysql_error());
               while ($line = mysql_fetch_row($result)) {
                 if($j<2) {
-                    $user2 = new User();
-                    $user2->getUser($line[0]);
+                    $user = new User();
+					$user->getUser($line[0]);
+					$user2 = new User();
+					$user2->getUser($line[1]);
                     echo'<td class="slide">';
                     echo'<h3>'.$user->username.' + '.$user2->username.' = &lt;3 now !</h3>';
                     echo'<img src="../img/heart.png" alt="heart"/><br/>';
@@ -54,9 +56,9 @@
              
             $j=0;    
             $query3 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['user']->idUser.' AND u.idUser=m.idSender AND m.isImage=0'; 
-            $result = mysql_query($query3) or die('Query failed (news.php): ' . mysql_error());
+           $result = mysql_query($query3) or die('Query failed (news.php): ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
-                if($j<1) {
+                if($j<3) {
                 echo'<td class="slide">';
                 echo'<div id="countdown2" class="button">Click the envelope !</div>';
                 echo'<h3 id="h1">New message from '.$line[1].'</h3>';
@@ -79,7 +81,7 @@
             $query4 = 'SELECT m.idMessage,u.username,m.time FROM Message m, User u WHERE m.idReceiver ='.$_SESSION['user']->idUser.' AND u.idUser=m.idSender AND m.isImage=1'; 
             $result = mysql_query($query4) or die('Query failed (news.php): ' . mysql_error());
             while ($line = mysql_fetch_row($result)) {
-                if($j<1) {
+                if($j<3) {
                 echo'<td class="slide">';
                 echo'<div id="countdown" class="button">Click the lock !</div>';
                 echo'<h3 id="h2">New message from '.$line[1].'</h3>';
